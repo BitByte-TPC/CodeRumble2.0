@@ -1,7 +1,7 @@
 import { HeroFooter } from "../components";
 const Hero = () => (
-    <div className="mb-[20vh]">
-        <div className="flex justify-center my-[8vh] py-[2vh]">
+    <div className="min-h-[80vh]">
+        <div className="flex justify-center my-[13vh] md:my-[8vh] py-[2vh]">
             <div
                 className="mx-auto flex flex-col items-center gap-6"
             >
