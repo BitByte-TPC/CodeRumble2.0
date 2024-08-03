@@ -1,12 +1,12 @@
 import {Navbar, Footer, HeroFooter} from '../components';
-import {Hero, About, Participate} from '../sections';
+import {Hero, About, Perks} from '../sections';
 const Page =()=>(
   <div className="mx-2 md:mx-6">
     <Navbar/>
     <Hero/>
-    <HeroFooter/>
+    {/* <HeroFooter/> */}
     <About/>
-    <Participate/>
+    <Perks/>
     {/* <Footer/> */}
   </div>
 );
