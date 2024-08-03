@@ -1,6 +1,5 @@
-import Image from "next/image";
-import {Hero} from '../sections';
-import {Navbar, Footer, HeroFooter, About} from '../components';
+import {Navbar, Footer, HeroFooter} from '../components';
+import {Hero, About} from '../sections';
 const Page =()=>(
   <div className="mx-4 md:mx-10">
     <Navbar/>
