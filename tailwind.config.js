@@ -9,6 +9,7 @@ module.exports = {
   theme: {
     extend: {
       screens: {
+        'xs': '480px',
         '2k': '2560px',
       },
       backgroundImage: {
