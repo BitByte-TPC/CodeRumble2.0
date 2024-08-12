@@ -1,5 +1,5 @@
 const Navbar = () => (
-    <nav className="py-8 relative inset-0 ">
+    <nav className="py-8 absolute inset-0 ">
         <div className="relative" />
         <div className="md:w-full md:max-w-none container mx-auto flex flex-wrap justify-between items-center gap-4 md:gap-8 px-2 md:px-6">
             <div className="flex flex-row text-sm items-center font-medium text-white">
