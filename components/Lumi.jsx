@@ -1,73 +1,76 @@
 "use client";
 
-import { useEffect } from "react";
-import Image from "next/image";
+import { useEffect, useRef } from "react";
 
 function Lumi() {
-    useEffect(() => {
-        const eyeElements = document.querySelectorAll(".eye");
-        const main = document.querySelector(".eyes");
-        const middle = main.getBoundingClientRect();
-        const anchorX = middle.left + middle.width / 2;
-        const anchorY = middle.top + middle.height / 2;
-        const maxRadius = 100; // Maximum radius the eyes can move within
+  const videoRef = useRef(null);
 
-        const calAngleAndDistance = (cx, cy, ex, ey) => {
-            const dy = ey - cy;
-            const dx = ex - cx;
-            const rad = Math.atan2(dy, dx);
-            const distance = Math.sqrt(dx * dx + dy * dy);
-            return { angle: rad, distance: distance };
-        };
+  useEffect(() => {
+    const eyeElements = document.querySelectorAll(".eye");
+    const main = document.querySelector(".anchor");
+    const middle = main.getBoundingClientRect();
+    const anchorX = middle.left + middle.width / 2;
+    const anchorY = middle.top + middle.height / 2;
+    const maxRadius = 100; // Maximum radius the eyes can move within
 
-        const handleMouseMove = (e) => {
-            const mousex = e.clientX;
-            const mousey = e.clientY;
+    const calAngleAndDistance = (cx, cy, ex, ey) => {
+      const dy = ey - cy;
+      const dx = ex - cx;
+      const rad = Math.atan2(dy, dx);
+      const distance = Math.sqrt(dx * dx + dy * dy);
+      return { angle: rad, distance: distance };
+    };
 
-            const { angle, distance } = calAngleAndDistance(
-                anchorX,
-                anchorY,
-                mousex,
-                mousey
-            );
+    const handleMouseMove = (e) => {
+      const mousex = e.clientX;
+      const mousey = e.clientY;
 
-            // Constrain the distance to the maximum radius
-            const constrainedDistance = Math.min(distance, maxRadius);
+      const { angle, distance } = calAngleAndDistance(
+        anchorX,
+        anchorY,
+        mousex,
+        mousey
+      );
 
-            const offsetX = Math.cos(angle) * constrainedDistance;
-            const offsetY = Math.sin(angle) * constrainedDistance ;
+      // Constrain the distance to the maximum radius
+      const constrainedDistance = Math.min(distance, maxRadius);
 
-            eyeElements.forEach((item) => {
-                item.style.transform = `translate(${offsetX}px, ${offsetY}px)`;
-            });
-        };
+      const offsetX = Math.cos(angle) * constrainedDistance;
+      const offsetY = Math.sin(angle) * constrainedDistance;
 
-        document.addEventListener("mousemove", handleMouseMove);
+      eyeElements.forEach((item) => {
+        item.style.transform = `translate(${offsetX}px, ${offsetY}px)`;
+      });
+    };
 
-        return () => {
-            document.removeEventListener("mousemove", handleMouseMove);
-        };
-    }, []);
+    document.addEventListener("mousemove", handleMouseMove);
 
-    return (
-        <>
-            {/* <div className="flex-col "> */}
-                {/* <div className="z-10 ">
-                    <Image
-                        src='/lumiDefault.png'
-                        width={500}
-                        height={500}
-                        alt='Lumi'
-                    />
-                </div> */}
+    if (videoRef.current) {
+      videoRef.current.playbackRate = 0.4; // Set playback speed to 50%
+    }
 
-                <div className='flex gap-[4.5rem]  z-20 right-[55rem] top-[22.5rem] eyes'>
-                    <div className='bg-white rounded-xl h-[7.5rem] w-[2.5rem]  eye'></div>
-                    <div className='bg-white rounded-xl h-[7.5rem] w-[2.5rem]  eye'></div>
-                {/* </div> */}
-            </div>
-        </>
-    );
+    return () => {
+      document.removeEventListener("mousemove", handleMouseMove);
+    };
+  }, []);
+
+  return (
+    <div className="relative">
+      <video
+        ref={videoRef}
+        src="/lumi.webm"
+        autoPlay
+        loop
+        muted
+        className="anchor sm:w-full sm:h-full w-[500px] h-[500px]"
+      />
+
+      <div className="flex gap-[2rem] sm:gap-[4.5rem] absolute top-[50%] left-[50%] transform -translate-x-[45%] -translate-y-[35%] z-20">
+        <div className="bg-white rounded-md sm:rounded-xl h-[3.5rem] w-[1.4rem] sm:h-[7.5rem] sm:w-[2.5rem] eye transition-transform duration-300 ease-out"></div>
+        <div className="bg-white rounded-md sm:rounded-xl h-[3.5rem] w-[1.4rem] sm:h-[7.5rem] sm:w-[2.5rem] eye transition-transform duration-300 ease-out"></div>
+      </div>
+    </div>
+  );
 }
 
 export default Lumi;

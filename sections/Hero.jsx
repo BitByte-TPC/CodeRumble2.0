@@ -1,18 +1,20 @@
-import { HeroFooter, Lumi } from "../components";
+import { HeroFooter, Lumi, Navbar } from "../components";
 
 const Hero = () => (
-    <div className="min-h-[80vh]">
-        <div className="flex justify-center my-[13vh] md:my-[8vh] py-[2vh]">
-            <div
-                className="mx-auto flex flex-col items-center gap-6"
-            >
-                {/* <img src="./heroLogo.png" className="md:h-[50vh]" alt="code rumble" /> */}
-                <Lumi/>
-                <button className="md:hidden flex bg-[#1A1A1A] px-8 py-3 rounded-full text-white font-bold ">Register Now</button>
-            </div>
+  <>
+    <Navbar />
+    <div className="flex flex-col min-h-screen">
+      <div className="flex-grow flex flex-col items-center justify-center">
+        <div className="flex flex-col items-center gap-6">
+          <Lumi />
+          <button className="md:hidden bg-[#1A1A1A] px-8 py-3 rounded-full text-white font-bold">
+            Register Now
+          </button>
         </div>
-        <HeroFooter/>
+      </div>
+      <HeroFooter />
     </div>
-)
+  </>
+);
 
 export default Hero;
