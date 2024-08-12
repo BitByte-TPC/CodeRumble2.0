@@ -1,17 +1,24 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 function Lumi() {
   const videoRef = useRef(null);
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
   useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
+    window.addEventListener("resize", handleResize);
+
     const eyeElements = document.querySelectorAll(".eye");
     const main = document.querySelector(".anchor");
     const middle = main.getBoundingClientRect();
     const anchorX = middle.left + middle.width / 2;
     const anchorY = middle.top + middle.height / 2;
-    const maxRadius = 100; // Maximum radius the eyes can move within
+    const maxRadius = windowWidth < 450 ? 50 : 100; // Maximum radius the eyes can move within
 
     const calAngleAndDistance = (cx, cy, ex, ey) => {
       const dy = ey - cy;
@@ -51,6 +58,7 @@ function Lumi() {
 
     return () => {
       document.removeEventListener("mousemove", handleMouseMove);
+      window.removeEventListener("resize", handleResize);
     };
   }, []);
 
@@ -62,12 +70,12 @@ function Lumi() {
         autoPlay
         loop
         muted
-        className="anchor sm:w-full sm:h-full w-[500px] h-[500px]"
+        className="anchor xs:w-full xs:h-full w-[500px] h-[500px]"
       />
 
-      <div className="flex gap-[2rem] sm:gap-[4.5rem] absolute top-[50%] left-[50%] transform -translate-x-[45%] -translate-y-[35%] z-20">
-        <div className="bg-white rounded-md sm:rounded-xl h-[3.5rem] w-[1.4rem] sm:h-[7.5rem] sm:w-[2.5rem] eye transition-transform duration-300 ease-out"></div>
-        <div className="bg-white rounded-md sm:rounded-xl h-[3.5rem] w-[1.4rem] sm:h-[7.5rem] sm:w-[2.5rem] eye transition-transform duration-300 ease-out"></div>
+      <div className="flex gap-[2rem] xs:gap-[4.5rem] absolute top-[50%] left-[50%] transform -translate-x-[45%] -translate-y-[35%] z-20">
+        <div className="bg-white rounded-md xs:rounded-xl h-[3.5rem] w-[1.4rem] xs:h-[7.5rem] xs:w-[2.5rem] eye transition-transform duration-300 ease-out"></div>
+        <div className="bg-white rounded-md xs:rounded-xl h-[3.5rem] w-[1.4rem] xs:h-[7.5rem] xs:w-[2.5rem] eye transition-transform duration-300 ease-out"></div>
       </div>
     </div>
   );
