@@ -1,5 +1,5 @@
 const About = () => (
-  <div className="flex flex-col items-center w-[100%] gap-5 md:gap-10 :gap-20 justify-center mx-auto my-10 sm:my-28 xl:my-[12rem]">
+  <div className="flex flex-col items-center w-[100%] gap-5 md:gap-10 :gap-20 justify-center  mx-auto my-20  sm:my-28 xl:my-[12rem]">
     <h1 className="text-[2rem] md:text-[3.5rem] lg:text-[5vw] 2k:text-9xl font-extrabold text-center w-[100%]">
       What is Code Rumble 2.0?
     </h1>

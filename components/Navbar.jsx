@@ -1,3 +1,5 @@
+"use client"
+
 const Navbar = () => (
   <nav className="pt-8 absolute inset-x-0 top-0 z-50">
     <div
@@ -22,7 +24,12 @@ const Navbar = () => (
           </p>
         </div>
       </div>
-      <button className="hidden md:flex bg-[#1A1A1A] md:px-10 md:py-4 2k:px-12 2k:py-5 rounded-full text-white font-bold text-lg 2k:text-xl">
+      <button
+        onClick={() =>
+          (window.location.href = "https://code-rumble.devfolio.co/overview")
+        }
+        className="hidden md:flex bg-[#1A1A1A] md:px-10 md:py-4 2k:px-12 2k:py-5 rounded-full text-white font-bold text-lg 2k:text-xl hover:bg-[#282828] hover:scale-105 transition-transform duration-300"
+      >
         Register Now
       </button>
     </div>
