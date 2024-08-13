@@ -1,4 +1,4 @@
-import PerksCard from "../components/PerksCard";
+import { PerksCard} from "../components";
 export default function Perks() {
     const head1 = "REASON #1";
     const text1 = "Sharpen coding skills in an ICPC Mock Regional environment";
