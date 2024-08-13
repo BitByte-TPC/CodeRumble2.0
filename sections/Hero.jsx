@@ -6,7 +6,7 @@ const Hero = () => (
     <Navbar />
     <div className="flex flex-col min-h-screen">
       <div className="flex-grow flex flex-col items-center justify-center ">
-        <div 
+        <div
           style={{
             backgroundImage: "url(./heroLogo.webp)",
             backgroundSize: "contain", // 'contain' will scale the image to fit within the container without cropping

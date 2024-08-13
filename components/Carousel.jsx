@@ -1,5 +1,6 @@
 "use client";
 import React, { useEffect } from "react";
+import Image from "next/image";
 import Glide from "@glidejs/glide";
 
 export default function CarouselControlsOutside() {
@@ -32,57 +33,43 @@ export default function CarouselControlsOutside() {
 
   return (
     <>
-      <div className="glide-04 relative w-full max-w-screen-lg mx-auto overflow-hidden">
+      <div className="glide-04 relative w-full max-w-screen-lg mx-auto overflow-hidden justify-center items-center">
         <div className="glide__track" data-glide-el="track">
           <ul className="glide__slides flex">
             <li
               className="glide__slide flex-shrink-0"
               style={{ width: "1024px", height: "400px" }}
             >
-              <img
-                src="https://Tailwindmix.b-cdn.net/carousel/carousel-image-01.jpg"
+              <Image
+                src="/carousel1.webp"
                 className="w-full h-full object-cover rounded-lg"
-                alt="Slide 1"
+                alt="CodeRumble 2.0 Photo"
+                height={300}
+                width={1024}
               />
             </li>
             <li
               className="glide__slide flex-shrink-0"
               style={{ width: "1024px", height: "400px" }}
             >
-              <img
-                src="https://Tailwindmix.b-cdn.net/carousel/carousel-image-02.jpg"
+              <Image
+                src="/carousel2.webp"
                 className="w-full h-full object-cover rounded-lg"
-                alt="Slide 2"
+                alt="CodeRumble 2.0 Photo"
+                height={300}
+                width={1024}
               />
             </li>
             <li
               className="glide__slide flex-shrink-0"
               style={{ width: "1024px", height: "400px" }}
             >
-              <img
-                src="https://Tailwindmix.b-cdn.net/carousel/carousel-image-03.jpg"
+              <Image
+                src="/carousel3.webp"
                 className="w-full h-full object-cover rounded-lg"
-                alt="Slide 3"
-              />
-            </li>
-            <li
-              className="glide__slide flex-shrink-0"
-              style={{ width: "1024px", height: "400px" }}
-            >
-              <img
-                src="https://Tailwindmix.b-cdn.net/carousel/carousel-image-04.jpg"
-                className="w-full h-full object-cover rounded-lg"
-                alt="Slide 4"
-              />
-            </li>
-            <li
-              className="glide__slide flex-shrink-0"
-              style={{ width: "1024px", height: "400px" }}
-            >
-              <img
-                src="https://Tailwindmix.b-cdn.net/carousel/carousel-image-05.jpg"
-                className="w-full h-full object-cover rounded-lg"
-                alt="Slide 5"
+                alt="CodeRumble 2.0 Photo"
+                height={300}
+                width={1024}
               />
             </li>
           </ul>
