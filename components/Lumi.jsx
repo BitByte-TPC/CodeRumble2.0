@@ -54,15 +54,24 @@ function Lumi() {
 
       document.addEventListener("mousemove", handleMouseMove);
 
-    if (videoRef.current) {
-      videoRef.current.playbackRate = 0.6; 
-      videoRef.current.focus()
-    }
+      if (videoRef.current) {
+        videoRef.current.playbackRate = 0.6;
+        videoRef.current.focus();
+      }
 
+      const blinkInterval = setInterval(() => {
+        eyeElements.forEach((eye) => {
+          eye.classList.add("blink");
+          setTimeout(() => {
+            eye.classList.remove("blink");
+          }, 600); // Duration of the blink animation
+        });
+      }, 6000); 
 
       return () => {
         document.removeEventListener("mousemove", handleMouseMove);
         window.removeEventListener("resize", handleResize);
+        clearInterval(blinkInterval);
       };
     }
   }, [windowWidth]);

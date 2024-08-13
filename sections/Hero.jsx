@@ -5,10 +5,10 @@ const Hero = () => (
   <>
     <Navbar />
     <div className="flex flex-col min-h-screen">
-      <div className="flex-grow flex flex-col items-center justify-center">
-        <div
+      <div className="flex-grow flex flex-col items-center justify-center ">
+        <div 
           style={{
-            backgroundImage: "url(./heroLogo.png)",
+            backgroundImage: "url(./heroLogo.webp)",
             backgroundSize: "contain", // 'contain' will scale the image to fit within the container without cropping
             backgroundPosition: "center",
             backgroundRepeat: "no-repeat",
@@ -16,7 +16,7 @@ const Hero = () => (
             width: "100%", // Adjust this to cover more area
           }}
         >
-          <div className="flex flex-col items-center gap-6">
+          <div className="flex flex-col items-center gap-6 ">
             <Lumi />
           </div>
         </div>
