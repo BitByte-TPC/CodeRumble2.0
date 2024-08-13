@@ -1,5 +1,5 @@
-"use client"
-
+"use client";
+import Image from "next/image";
 const Navbar = () => (
   <nav className="pt-8 absolute inset-x-0 top-0 z-50">
     <div
@@ -12,10 +12,12 @@ const Navbar = () => (
     ></div>
     <div className="relative md:w-full md:max-w-none container mx-auto flex flex-wrap justify-between items-center gap-4 md:gap-8 px-2 md:px-6">
       <div className="flex flex-row text-sm items-center font-medium text-white">
-        <img
-          className="w-20 2k:w-28 h-auto"
-          src="./tpcLogoWhite.png"
-          alt="TPC Logo"
+        <Image
+        src="/tpcLogoWhite.png"
+        alt="TPC Logo"
+        width={50}
+        height={50}
+
         />
         <div className="px-4 flex flex-col">
           <p className="text-xs md:text-base 2k:text-lg">Prepared by</p>

@@ -54,9 +54,9 @@ function Lumi() {
 
       document.addEventListener("mousemove", handleMouseMove);
 
-      if (videoRef.current) {
-        videoRef.current.playbackRate = 0.4;
-      }
+    if (videoRef.current) {
+      videoRef.current.playbackRate = 0.6; // Set playback speed to 50%
+    }
 
       return () => {
         document.removeEventListener("mousemove", handleMouseMove);
@@ -66,7 +66,7 @@ function Lumi() {
   }, [windowWidth]);
 
   return (
-    <div className="relative">
+    <div className="relative mix-blend-screen">
       <video
         ref={videoRef}
         src="/lumi.webm"
