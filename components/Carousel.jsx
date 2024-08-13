@@ -1,6 +1,5 @@
 "use client";
 import React, { useEffect } from "react";
-import Image from "next/image";
 import Glide from "@glidejs/glide";
 
 export default function CarouselControlsOutside() {
@@ -40,7 +39,7 @@ export default function CarouselControlsOutside() {
               className="glide__slide flex-shrink-0"
               style={{ width: "1024px", height: "400px" }}
             >
-              <Image
+              <img
                 src="/carousel1.webp"
                 className="w-full h-full object-cover rounded-lg"
                 alt="CodeRumble 2.0 Photo"
@@ -52,7 +51,7 @@ export default function CarouselControlsOutside() {
               className="glide__slide flex-shrink-0"
               style={{ width: "1024px", height: "400px" }}
             >
-              <Image
+              <img
                 src="/carousel2.webp"
                 className="w-full h-full object-cover rounded-lg"
                 alt="CodeRumble 2.0 Photo"
@@ -64,7 +63,7 @@ export default function CarouselControlsOutside() {
               className="glide__slide flex-shrink-0"
               style={{ width: "1024px", height: "400px" }}
             >
-              <Image
+              <img
                 src="/carousel3.webp"
                 className="w-full h-full object-cover rounded-lg"
                 alt="CodeRumble 2.0 Photo"
