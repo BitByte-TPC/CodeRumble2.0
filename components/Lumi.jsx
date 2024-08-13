@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 
 function Lumi() {
   const videoRef = useRef(null);
+  const mainRef = useRef(null); // Ref for the main container
   const [windowWidth, setWindowWidth] = useState(
     typeof window !== "undefined" ? window.innerWidth : 0
   );
@@ -54,22 +55,41 @@ function Lumi() {
 
       document.addEventListener("mousemove", handleMouseMove);
 
-    if (videoRef.current) {
-      videoRef.current.playbackRate = 0.6; 
-    }
+      if (videoRef.current) {
+        videoRef.current.playbackRate = 0.6;
+        videoRef.current.focus();
+      }
+
+      const blinkInterval = setInterval(() => {
+        eyeElements.forEach((eye) => {
+          eye.classList.add("blink");
+          setTimeout(() => {
+            eye.classList.remove("blink");
+          }, 600); // Duration of the blink animation
+        });
+      }, 6000); // Blinking every 6 seconds
+
+      if (mainRef.current) {
+        mainRef.current.focus();
+      }
 
       return () => {
         document.removeEventListener("mousemove", handleMouseMove);
         window.removeEventListener("resize", handleResize);
+        clearInterval(blinkInterval);
       };
     }
   }, [windowWidth]);
 
   return (
-    <div className="relative mix-blend-screen">
+    <div
+      className="relative mix-blend-screen"
+      ref={mainRef}
+      // tabIndex="-1"
+    >
       <video
         ref={videoRef}
-        src="/lumi.webm"
+        src="./lumi.webm"
         autoPlay
         loop
         muted
