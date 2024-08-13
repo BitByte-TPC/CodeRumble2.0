@@ -56,7 +56,9 @@ function Lumi() {
 
     if (videoRef.current) {
       videoRef.current.playbackRate = 0.6; 
+      videoRef.current.focus()
     }
+
 
       return () => {
         document.removeEventListener("mousemove", handleMouseMove);
@@ -69,7 +71,7 @@ function Lumi() {
     <div className="relative mix-blend-screen">
       <video
         ref={videoRef}
-        src="/lumi.webm"
+        src="./lumi.webm"
         autoPlay
         loop
         muted

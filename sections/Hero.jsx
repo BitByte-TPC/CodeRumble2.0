@@ -8,7 +8,7 @@ const Hero = () => (
       <div className="flex-grow flex flex-col items-center justify-center">
         <div
           style={{
-            backgroundImage: "url(./header.svg)",
+            backgroundImage: "url(./heroLogo.png)",
             backgroundSize: "contain", // 'contain' will scale the image to fit within the container without cropping
             backgroundPosition: "center",
             backgroundRepeat: "no-repeat",
