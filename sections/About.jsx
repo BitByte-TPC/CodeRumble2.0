@@ -8,7 +8,7 @@ const About = () => (
 
     <div className="relative w-full sm:w-[90%] lg:w-[70%] aspect-[25/9] max-w-[1200px]">
       <Image
-        src="/grid.svg"
+        src="./grid.svg"
         alt="Background Grid"
         layout="fill"
         objectFit="contain"
