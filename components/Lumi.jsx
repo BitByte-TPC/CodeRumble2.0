@@ -55,7 +55,7 @@ function Lumi() {
       document.addEventListener("mousemove", handleMouseMove);
 
     if (videoRef.current) {
-      videoRef.current.playbackRate = 0.6; // Set playback speed to 50%
+      videoRef.current.playbackRate = 0.6; 
     }
 
       return () => {
