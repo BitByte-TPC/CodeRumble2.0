@@ -40,7 +40,7 @@ export default function CarouselControlsOutside() {
               style={{ width: "1024px", height: "400px" }}
             >
               <img
-                src="/carousel1.webp"
+                src="./carousel1.webp"
                 className="w-full h-full object-cover rounded-lg"
                 alt="CodeRumble 2.0 Photo"
                 height={300}
@@ -52,7 +52,7 @@ export default function CarouselControlsOutside() {
               style={{ width: "1024px", height: "400px" }}
             >
               <img
-                src="/carousel2.webp"
+                src="./carousel2.webp"
                 className="w-full h-full object-cover rounded-lg"
                 alt="CodeRumble 2.0 Photo"
                 height={300}
@@ -64,7 +64,7 @@ export default function CarouselControlsOutside() {
               style={{ width: "1024px", height: "400px" }}
             >
               <img
-                src="/carousel3.webp"
+                src="./carousel3.webp"
                 className="w-full h-full object-cover rounded-lg"
                 alt="CodeRumble 2.0 Photo"
                 height={300}
