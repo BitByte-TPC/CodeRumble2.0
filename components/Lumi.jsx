@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 
 function Lumi() {
   const videoRef = useRef(null);
-  const mainRef = useRef(null); // Ref for the main container
+  const mainRef = useRef(null);
   const [windowWidth, setWindowWidth] = useState(
     typeof window !== "undefined" ? window.innerWidth : 0
   );
@@ -49,8 +49,10 @@ function Lumi() {
         const offsetY = Math.sin(angle) * constrainedDistance;
 
         eyeElements.forEach((item) => {
-          item.style.transform = `translate(${offsetX}px, ${offsetY}px)`;
+          item.style.transform = `translate(${offsetX*2}px, ${offsetY*2}px)`;
         });
+
+        videoRef.current.style.transform = `translate(${offsetX}px, ${offsetY}px)`;
       };
 
       document.addEventListener("mousemove", handleMouseMove);
@@ -82,23 +84,19 @@ function Lumi() {
   }, [windowWidth]);
 
   return (
-    <div
-      className="relative mix-blend-screen"
-      ref={mainRef}
-      // tabIndex="-1"
-    >
+    <div className="relative mix-blend-screen" ref={mainRef}>
       <video
         ref={videoRef}
         src="./lumi.webm"
         autoPlay
         loop
         muted
-        className="anchor xs:w-full xs:h-full w-[500px] h-[500px]"
+        className="anchor xs:w-full xs:h-full w-[500px] h-[500px] transition-transform duration-1000 ease-out"
       />
 
       <div className="flex gap-[2rem] xs:gap-[4.5rem] absolute top-[50%] left-[50%] transform -translate-x-[45%] -translate-y-[35%] z-20">
-        <div className="bg-white rounded-md xs:rounded-xl h-[3.5rem] w-[1.4rem] xs:h-[7.5rem] xs:w-[2.5rem] eye transition-transform duration-300 ease-out"></div>
-        <div className="bg-white rounded-md xs:rounded-xl h-[3.5rem] w-[1.4rem] xs:h-[7.5rem] xs:w-[2.5rem] eye transition-transform duration-300 ease-out"></div>
+        <div className="bg-white rounded-md xs:rounded-xl h-[3.5rem] w-[1.4rem] xs:h-[7.5rem] xs:w-[2.5rem] eye transition-transform duration-1000 ease-out"></div>
+        <div className="bg-white rounded-md xs:rounded-xl h-[3.5rem] w-[1.4rem] xs:h-[7.5rem] xs:w-[2.5rem] eye transition-transform duration-1000 ease-out"></div>
       </div>
     </div>
   );
