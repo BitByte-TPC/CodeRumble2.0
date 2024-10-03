@@ -22,11 +22,11 @@ const Hero = () => (
         </div>
         <button
           onClick={() =>
-            (window.location.href = " https://discord.gg/8Qu8dsYfCS")
+            (window.location.href = "https://www.techgig.com/coderumble2.0")
           }
-          className="md:hidden bg-[#1A1A1A] px-8 py-3 rounded-full text-white font-bold hover:bg-[#282828] hover:scale-105 transition-transform duration-300"
+          className="md:hidden bg-[#1A1A1A] px-8 py-3 rounded-full text-white font-bold hover:bg-[#282828] hover:scale-105 transition-transform duration-300 z-50"
         >
-         Join Discord!
+          Register Now
         </button>
       </div>
       <div className="mt-auto mb-4">

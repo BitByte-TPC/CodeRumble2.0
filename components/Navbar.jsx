@@ -22,11 +22,11 @@ const Navbar = () => (
       </div>
       <button
         onClick={() =>
-          (window.location.href = " https://discord.gg/8Qu8dsYfCS")
+          (window.location.href = " https://www.techgig.com/coderumble2.0")
         }
         className="hidden md:flex bg-[#1A1A1A] md:px-10 md:py-4 2k:px-12 2k:py-5 rounded-full text-white font-bold text-lg 2k:text-xl hover:bg-[#282828] hover:scale-105 transition-transform duration-300"
       >
-        Join Discord!
+        Register Now!
       </button>
     </div>
   </nav>
