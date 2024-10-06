@@ -8,7 +8,7 @@ const Hero = () => (
       <div className="flex-grow flex flex-col items-center justify-center">
         <div
           style={{
-            backgroundImage: "url(./heroLogo.webp)",
+            backgroundImage: "url(https://res.cloudinary.com/dtg1mnp9u/image/upload/v1728221525/heroLogo_dvbhar.webp)",
             backgroundSize: "contain",
             backgroundPosition: "center",
             backgroundRepeat: "no-repeat",

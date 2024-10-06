@@ -40,7 +40,7 @@ export default function CarouselControlsOutside() {
               style={{ width: "1024px", height: "400px" }}
             >
               <img
-                src="./carousel1.webp"
+                src="https://res.cloudinary.com/dtg1mnp9u/image/upload/v1728221531/carousel1_xgjgov.webp"
                 className="w-full h-full object-cover rounded-lg"
                 alt="CodeRumble 2.0 Photo"
                 height={300}
@@ -52,7 +52,7 @@ export default function CarouselControlsOutside() {
               style={{ width: "1024px", height: "400px" }}
             >
               <img
-                src="./carousel2.webp"
+                src="https://res.cloudinary.com/dtg1mnp9u/image/upload/v1728221528/carousel2_vjk02b.webp"
                 className="w-full h-full object-cover rounded-lg"
                 alt="CodeRumble 2.0 Photo"
                 height={300}
@@ -64,7 +64,7 @@ export default function CarouselControlsOutside() {
               style={{ width: "1024px", height: "400px" }}
             >
               <img
-                src="./carousel3.webp"
+                src="https://res.cloudinary.com/dtg1mnp9u/image/upload/v1728221455/carousel3_khtgwt.webp"
                 className="w-full h-full object-cover rounded-lg"
                 alt="CodeRumble 2.0 Photo"
                 height={300}

@@ -2,17 +2,10 @@
 import Image from "next/image";
 const Navbar = () => (
   <nav className="pt-8 absolute inset-x-0 top-0 z-50">
-    <div
-      className="absolute inset-0 bg-black bg-opacity-30 backdrop-blur-md"
-      style={{
-        maskImage: "linear-gradient(to bottom, black 70%, transparent 100%)",
-        WebkitMaskImage:
-          "linear-gradient(to bottom, black 70%, transparent 100%)",
-      }}
-    ></div>
+    
     <div className="relative md:w-full md:max-w-none container mx-auto flex flex-wrap justify-between items-center gap-4 md:gap-8 px-2 md:px-6">
       <div className="flex flex-row text-sm items-center font-medium text-white">
-        <Image src="./tpclogo.svg" alt="TPC Logo" width={50} height={50} />
+        <Image src="https://res.cloudinary.com/dtg1mnp9u/image/upload/v1728221523/tpclogo_sewgqw.svg" alt="TPC Logo" width={50} height={50} />
         <div className="px-4 flex flex-col">
           <p className="text-xs md:text-base 2k:text-lg">Prepared by</p>
           <p className="text-xs md:text-base 2k:text-lg">
