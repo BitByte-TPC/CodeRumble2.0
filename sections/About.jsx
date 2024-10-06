@@ -8,7 +8,7 @@ const About = () => (
 
     <div className="relative w-full sm:w-[90%] lg:w-[70%] aspect-[25/9] max-w-[1200px]">
       <Image
-        src="./grid.svg"
+        src="https://res.cloudinary.com/dtg1mnp9u/image/upload/v1728221525/grid_d62wji.svg"
         alt="Background Grid"
         layout="fill"
         objectFit="contain"

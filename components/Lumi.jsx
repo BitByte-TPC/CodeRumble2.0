@@ -87,7 +87,7 @@ function Lumi() {
     <div className="relative mix-blend-screen" ref={mainRef}>
       <video
         ref={videoRef}
-        src="./lumi.webm"
+        src="https://res.cloudinary.com/dtg1mnp9u/video/upload/v1728221525/lumi_hfqb5s.webm"
         autoPlay
         loop
         muted

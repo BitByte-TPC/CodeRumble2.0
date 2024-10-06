@@ -8,7 +8,7 @@ const Hero = () => (
       <div className="flex-grow flex flex-col items-center justify-center">
         <div
           style={{
-            backgroundImage: "url(./heroLogo.webp)",
+            backgroundImage: "url(https://res.cloudinary.com/dtg1mnp9u/image/upload/v1728221525/heroLogo_dvbhar.webp)",
             backgroundSize: "contain",
             backgroundPosition: "center",
             backgroundRepeat: "no-repeat",
@@ -26,7 +26,7 @@ const Hero = () => (
           }
           className="md:hidden bg-[#1A1A1A] px-8 py-3 rounded-full text-white font-bold hover:bg-[#282828] hover:scale-105 transition-transform duration-300 z-50"
         >
-        Register Now!
+          Register Now
         </button>
       </div>
       <div className="mt-auto mb-4">
