@@ -1,5 +1,5 @@
-import React from "react";
-import { Carousel } from "@/components";
+import React from "react"
+import { Carousel } from "@/components"
 
 function Gallery() {
   return (
@@ -10,13 +10,13 @@ function Gallery() {
             Gallery
           </h1>
           <p className="text-[0.7rem] md:text-[1rem] mt-1">
-            (CODE RUMBLE 1.0 - 2023)
+            (CODE RUMBLE 2.0 - 2024)
           </p>
         </div>
         <Carousel />
       </div>
     </>
-  );
+  )
 }
 
-export default Gallery;
+export default Gallery

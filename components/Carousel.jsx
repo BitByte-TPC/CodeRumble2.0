@@ -1,6 +1,6 @@
-"use client";
-import React, { useEffect } from "react";
-import Glide from "@glidejs/glide";
+"use client"
+import React, { useEffect } from "react"
+import Glide from "@glidejs/glide"
 
 export default function CarouselControlsOutside() {
   useEffect(() => {
@@ -21,14 +21,14 @@ export default function CarouselControlsOutside() {
           gap: 16,
         },
       },
-    });
+    })
 
-    glide.mount();
+    glide.mount()
 
     return () => {
-      glide.destroy();
-    };
-  }, []);
+      glide.destroy()
+    }
+  }, [])
 
   return (
     <>
@@ -40,9 +40,9 @@ export default function CarouselControlsOutside() {
               style={{ width: "1024px", height: "400px" }}
             >
               <img
-                src="https://res.cloudinary.com/dtg1mnp9u/image/upload/v1728221531/carousel1_xgjgov.webp"
+                src="/gallery/IMG_3958.JPG"
                 className="w-full h-full object-cover rounded-lg"
-                alt="CodeRumble 2.0 Photo"
+                alt="CodeRumble 1.0 Gallery Photo"
                 height={300}
                 width={1024}
               />
@@ -52,9 +52,9 @@ export default function CarouselControlsOutside() {
               style={{ width: "1024px", height: "400px" }}
             >
               <img
-                src="https://res.cloudinary.com/dtg1mnp9u/image/upload/v1728221528/carousel2_vjk02b.webp"
+                src="/gallery/IMG_3853.JPG"
                 className="w-full h-full object-cover rounded-lg"
-                alt="CodeRumble 2.0 Photo"
+                alt="CodeRumble 1.0 Gallery Photo"
                 height={300}
                 width={1024}
               />
@@ -64,9 +64,33 @@ export default function CarouselControlsOutside() {
               style={{ width: "1024px", height: "400px" }}
             >
               <img
-                src="https://res.cloudinary.com/dtg1mnp9u/image/upload/v1728221455/carousel3_khtgwt.webp"
+                src="/gallery/IMG_3866.JPG"
                 className="w-full h-full object-cover rounded-lg"
-                alt="CodeRumble 2.0 Photo"
+                alt="CodeRumble 1.0 Gallery Photo"
+                height={300}
+                width={1024}
+              />
+            </li>
+            <li
+              className="glide__slide flex-shrink-0"
+              style={{ width: "1024px", height: "400px" }}
+            >
+              <img
+                src="/gallery/IMG_3886.JPG"
+                className="w-full h-full object-cover rounded-lg"
+                alt="CodeRumble 1.0 Gallery Photo"
+                height={300}
+                width={1024}
+              />
+            </li>
+            <li
+              className="glide__slide flex-shrink-0"
+              style={{ width: "1024px", height: "400px" }}
+            >
+              <img
+                src="/gallery/IMG_3967.JPG"
+                className="w-full h-full object-cover rounded-lg"
+                alt="CodeRumble 1.0 Gallery Photo"
                 height={300}
                 width={1024}
               />
@@ -124,5 +148,5 @@ export default function CarouselControlsOutside() {
         </div>
       </div>
     </>
-  );
+  )
 }
