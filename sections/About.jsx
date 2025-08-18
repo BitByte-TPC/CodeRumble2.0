@@ -1,9 +1,9 @@
-import Image from "next/image";
+import Image from "next/image"
 
 const About = () => (
   <div className="flex flex-col items-center w-full gap-4 xs:gap-0 justify-center mx-auto my-20 sm:my-28 xl:my-[12rem]">
     <h1 className="text-[2rem] md:text-[3.5rem] lg:text-[5vw] 2k:text-9xl font-extrabold text-center w-full">
-      What is Code Rumble 2.0?
+      What is Code Rumble 3.0?
     </h1>
 
     <div className="relative w-full sm:w-[90%] lg:w-[70%] aspect-[25/9] max-w-[1200px]">
@@ -37,6 +37,6 @@ const About = () => (
       </div>
     </div>
   </div>
-);
+)
 
-export default About;
+export default About
