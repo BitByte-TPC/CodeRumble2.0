@@ -1,4 +1,4 @@
-import Socials from "./Socials";
+import Socials from "./Socials"
 
 const HeroFooter = () => (
   <>
@@ -9,14 +9,16 @@ const HeroFooter = () => (
       <div className="cp flex items-center justify-center"></div>
       <div className="empty flex items-center justify-end">
         <div className="flex-col text-right">
-          <p className="text-3xl xs:text-4xl md:text-6xl font-bold">20th</p>
-          <p className="text-base xs:text-xl md:text-4xl font-bold">
-            October
+          <p className="text-base xs:text-xl md:text-2xl font-bold">
+            Dates will be
+          </p>
+          <p className="text-base xs:text-xl md:text-2xl font-bold">
+            revealed soon!
           </p>
         </div>
       </div>
     </div>
   </>
-);
+)
 
-export default HeroFooter;
+export default HeroFooter
