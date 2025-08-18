@@ -1,4 +1,4 @@
-import Socials from "./Socials";
+import Socials from "./Socials"
 
 const Footer = () => (
   <>
@@ -8,11 +8,11 @@ const Footer = () => (
       </div>
       <div className="cp flex items-center justify-center">
         <span className="text-[#FFFFFF80] text-base lg:text-xl text-center">
-          Copyright &copy; 2024 CodeRumble 2.0 All rights reserved
+          Copyright &copy; 2025 CodeRumble 3.0 All rights reserved
         </span>
       </div>
     </div>
   </>
-);
+)
 
-export default Footer;
+export default Footer
