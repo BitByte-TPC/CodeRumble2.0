@@ -60,7 +60,7 @@ const Hero = () => {
               transition: "filter 0.3s ease",
             }}
           >
-            <div className="relative z-10">Pre Register Now</div>
+            <div className="relative z-10">Pre Registrations open!</div>
             {isHovered && (
               <div
                 className="absolute inset-0 pointer-events-none"
