@@ -29,7 +29,7 @@ const About = () => (
           </span>
           {/* Small screen content */}
           <span className="xs:hidden">
-            CodeRumble 2.0 is the ultimate event for aspiring programmers. Test
+            CodeRumble 3.0 is the ultimate event for aspiring programmers. Test
             your skills with competitive programming challenges and rise to the
             top in this mock ICPC contest!
           </span>
