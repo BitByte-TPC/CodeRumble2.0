@@ -54,7 +54,7 @@ const Hero = () => {
             onMouseMove={handleMouseMove}
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
-            className="bg-white px-10 py-5 rounded-xl text-black font-bold transition-transform duration-300 z-50 mb-4 w-80 h-22 absolute bottom-20 left-1/2 transform -translate-x-1/2 text-xl overflow-hidden"
+            className="bg-white px-8 py-3 rounded-xl text-black font-bold transition-transform duration-300 z-30 mb-8 w-80 h-22 relative text-xl overflow-hidden whitespace-nowrap"
             style={{
               filter: isHovered ? "blur(0.5px)" : "none",
               transition: "filter 0.3s ease",
@@ -131,14 +131,6 @@ const Hero = () => {
                 }
               }
             `}</style>
-          </button>
-          <button
-            onClick={() =>
-              (window.location.href = "https://forms.gle/a4WXd1AKptQoHLe89")
-            }
-            className="md:hidden bg-[#1A1A1A] px-8 py-3 rounded-full text-white font-bold hover:bg-[#282828] hover:scale-105 transition-transform duration-300 z-50"
-          >
-            Register Now
           </button>
         </div>
         <div className="mt-auto mb-4">
