@@ -49,12 +49,12 @@ const Hero = () => {
           <button
             ref={buttonRef}
             onClick={() =>
-              (window.location.href = "https://example.com/pre-register")
+              (window.location.href = "https://forms.gle/a4WXd1AKptQoHLe89")
             }
             onMouseMove={handleMouseMove}
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
-            className="bg-white px-8 py-3 rounded-xl text-black font-bold transition-transform duration-300 z-50 mb-4 w-80 h-22 absolute bottom-12 left-1/2 transform -translate-x-1/2 text-xl overflow-hidden"
+            className="bg-white px-10 py-5 rounded-xl text-black font-bold transition-transform duration-300 z-50 mb-4 w-80 h-22 absolute bottom-20 left-1/2 transform -translate-x-1/2 text-xl overflow-hidden"
             style={{
               filter: isHovered ? "blur(0.5px)" : "none",
               transition: "filter 0.3s ease",
@@ -134,7 +134,7 @@ const Hero = () => {
           </button>
           <button
             onClick={() =>
-              (window.location.href = "https://www.techgig.com/coderumble2.0")
+              (window.location.href = "https://forms.gle/a4WXd1AKptQoHLe89")
             }
             className="md:hidden bg-[#1A1A1A] px-8 py-3 rounded-full text-white font-bold hover:bg-[#282828] hover:scale-105 transition-transform duration-300 z-50"
           >
