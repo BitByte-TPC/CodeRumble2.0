@@ -54,13 +54,13 @@ const Hero = () => {
             onMouseMove={handleMouseMove}
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
-            className="bg-white px-8 py-3 rounded-xl text-black font-bold transition-transform duration-300 z-50 mb-4 w-80 h-22 absolute bottom-12 left-1/2 transform -translate-x-1/2 text-xl overflow-hidden"
+            className="bg-white px-8 py-3 rounded-xl text-black font-bold transition-transform duration-300 z-30 mb-8 w-80 h-22 relative text-xl sm:text-lg md:text-xl overflow-hidden whitespace-nowrap"
             style={{
               filter: isHovered ? "blur(0.5px)" : "none",
               transition: "filter 0.3s ease",
             }}
           >
-            <div className="relative z-10">Pre Registrations open!</div>
+            <div className="relativez-10">Pre Registrations open!</div>
             {isHovered && (
               <div
                 className="absolute inset-0 pointer-events-none"
@@ -131,14 +131,6 @@ const Hero = () => {
                 }
               }
             `}</style>
-          </button>
-          <button
-            onClick={() =>
-              (window.location.href = "https://www.techgig.com/coderumble2.0")
-            }
-            className="md:hidden bg-[#1A1A1A] px-8 py-3 rounded-full text-white font-bold hover:bg-[#282828] hover:scale-105 transition-transform duration-300 z-50"
-          >
-            Register Now
           </button>
         </div>
         <div className="mt-auto mb-4">
