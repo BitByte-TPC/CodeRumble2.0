@@ -27,9 +27,15 @@ export default function Main() {
 
 			<div className="absolute bottom-0 w-full flex flex-col items-center">
 				<div className='mb-4'>
-					<button className='font-mabry rounded-full text-4xl bg-blue-600 text-lime-400 border-4 border-lime-400 px-12 py-4 hover:bg-blue-700 transition-colors'>
-						Register!
-					</button>
+					<a
+						href="https://docs.google.com/forms/d/e/1FAIpQLSebjJtySWg-EUSD_Hio5OBF-EYOVWA0BatjSxaAzjUnzzj7mg/viewform"
+						target="_blank"
+						rel="noopener noreferrer"
+					>
+						<button className='font-mabry rounded-full text-4xl bg-blue-600 text-lime-400 border-4 border-lime-400 px-12 py-4 hover:bg-blue-700 transition-colors  cursor-pointer'>
+							Register!
+						</button>
+					</a>
 				</div>
 
 				<div className="w-full grid grid-cols-3 items-center h-fit px-18 py-5">
