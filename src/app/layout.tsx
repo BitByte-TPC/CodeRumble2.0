@@ -1,6 +1,30 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import localFont from 'next/font/local'
+
+const cocogoosePro = localFont({
+  src: [
+    {
+      path: '../assets/fonts/cocogoose-pro.semilight.ttf',
+      weight: '300',
+      style: 'normal',
+    }
+  ],
+  variable: '--font-cocogoose-pro',
+  display: 'swap',
+})
+const mabryPro = localFont({
+  src: [
+    {
+      path: '../assets/fonts/MabryPro-Regular.ttf',
+      weight: '300',
+      style: 'normal',
+    }
+  ],
+  variable: '--font-mabry-pro',
+  display: 'swap',
+})
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -25,7 +49,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${cocogoosePro.variable} ${mabryPro.variable} antialiased`}
       >
         {children}
       </body>
