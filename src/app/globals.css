@@ -29,3 +29,56 @@ body {
 .font-mabry {
   font-family: var(--font-mabry-pro);
 }
+
+.water-ripple-1,
+.water-ripple-2,
+.water-ripple-3 {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(188, 255, 6, 0.2) 0%, rgba(188, 255, 6, 0.05) 30%, transparent 70%);
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards;
+}
+
+.water-ripple-1 {
+  width: 20px;
+  height: 20px;
+  top: 40%;
+  left: 30%;
+  animation: ripple 1.5s infinite;
+  animation-delay: 0s;
+}
+
+.water-ripple-2 {
+  width: 15px;
+  height: 15px;
+  top: 60%;
+  left: 60%;
+  animation: ripple 1.8s infinite;
+  animation-delay: 0.3s;
+}
+
+.water-ripple-3 {
+  width: 25px;
+  height: 25px;
+  top: 30%;
+  left: 70%;
+  animation: ripple 2.2s infinite;
+  animation-delay: 0.6s;
+}
+
+@keyframes ripple {
+  0% {
+    transform: scale(0) translate(-50%, -50%);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(4) translate(-12.5%, -12.5%);
+    opacity: 0.4;
+  }
+  100% {
+    transform: scale(8) translate(-6.25%, -6.25%);
+    opacity: 0;
+  }
+}
+

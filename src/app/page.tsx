@@ -5,6 +5,7 @@ import Footer from '@/components/layout/Footer'
 import Lenis from 'lenis';
 import { useEffect } from 'react';
 
+
 export default function Home() {
   useEffect(()=>{
     const lenis = new Lenis();
@@ -16,9 +17,15 @@ export default function Home() {
   })
   return (
     <div>
-      <Main/>
-      <About/>
-      <Footer/>
+      <section id="home" className="min-h-screen">
+        <Main />
+      </section>
+      <section id="about" className="min-h-screen">
+        <About />
+      </section>
+      <section id="contact" className="min-h-screen">
+        <Footer />
+      </section>
     </div>
   );
 }

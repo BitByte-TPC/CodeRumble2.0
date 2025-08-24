@@ -3,10 +3,14 @@ import Image from 'next/image';
 import gear from '@/assets/gear.svg'
 import bulb from '@/assets/bulb.svg'
 import brain from '@/assets/brain.svg'
+import PageBeetles from '@/components/PageBeetles';
 
 export default function About() {
     return (
-        <div className="min-h-screen flex justify-center py-10 md:py-20 px-4">
+        <div className="min-h-screen flex justify-center py-10 md:py-20 px-4 relative" id="about">
+            {/* About Page Beetles */}
+            <PageBeetles pageType="about" beetleCount={3} />
+            
             <div className='w-full md:w-[60%] flex flex-col gap-10 md:gap-20 items-center'>
                 <div className='bg-amber-500/0 flex flex-col gap-6 md:gap-8 w-full'>
                     <div className='flex flex-col md:flex-row justify-center items-center md:items-baseline gap-2 md:gap-6 text-3xl md:text-5xl'>

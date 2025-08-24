@@ -2,10 +2,13 @@ import coderumble_white from '@/assets/coderumble_white.svg'
 import tpc_logo from '@/assets/tpc_logo.svg'
 import three from '@/assets/three.svg'
 import Image from 'next/image';
+import PageBeetles from '@/components/PageBeetles';
 
 export default function Main() {
 	return (
-		<div className="min-h-screen relative flex flex-col justify-center items-center">
+		<div className="min-h-screen relative flex flex-col justify-center items-center" id="home">
+			<PageBeetles pageType="main" beetleCount={3} />
+			
 			<div className='gap-10 w-[70%] flex justify-center h-44 mb-14'>
 				<Image
 					className='w-[80%]'
