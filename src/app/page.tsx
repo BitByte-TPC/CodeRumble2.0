@@ -1,20 +1,19 @@
 "use client"
-import About from '@/components/sections/About'
-import Main from '@/components/sections/Main'
-import Footer from '@/components/layout/Footer'
-import Prizes from '@/components/Prizes'
-import Lenis from 'lenis';
-import { useEffect } from 'react';
-
+import About from "@/components/sections/About"
+import Main from "@/components/sections/Main"
+import Footer from "@/components/layout/Footer"
+import Prizes from "@/components/Prizes"
+import Lenis from "lenis"
+import { useEffect } from "react"
 
 export default function Home() {
-  useEffect(()=>{
-    const lenis = new Lenis();
+  useEffect(() => {
+    const lenis = new Lenis()
     function raf(time: number) {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
+      lenis.raf(time)
+      requestAnimationFrame(raf)
     }
-    requestAnimationFrame(raf);
+    requestAnimationFrame(raf)
   })
   return (
     <div>
@@ -27,9 +26,9 @@ export default function Home() {
       <section id="prizes" className="min-h-screen">
         <Prizes />
       </section>
-      <section id="contact" className="min-h-screen">
+      <section id="contact" className="">
         <Footer />
       </section>
     </div>
-  );
+  )
 }
