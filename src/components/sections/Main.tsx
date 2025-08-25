@@ -1,8 +1,12 @@
 import coderumble_white from "@/assets/coderumble_white.svg"
 import tpc_logo from "@/assets/tpc_logo.svg"
 import three from "@/assets/three.svg"
+import instagram from "@/assets/instagram.svg"
+import x from "@/assets/x.svg"
+import linkedin from "@/assets/linkedin.svg"
 import Image from "next/image"
 import PageBeetles from "@/components/PageBeetles"
+import Link from "next/link"
 
 export default function Main() {
   return (
@@ -50,11 +54,41 @@ export default function Main() {
           </div>
 
           <div className="text-white text-center">
-            <div className="text-lg font-bold">Date</div>
+            <div className="text-2xl font-bold flex justify-center">
+              <span className="bg-secondary/20 py-1 px-6 border border-secondary/50 rounded-full">
+                21 / 09 / 2025
+              </span>
+            </div>
           </div>
 
           <div className="text-white flex justify-end pr-2">
-            <div className="text-lg font-bold">socials</div>
+            <div className="text-lg font-bold flex gap-3">
+              <Link
+                href="https://www.instagram.com/bitbyte.tpc?igsh=OTYxbGxvb21oNzVr"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Image
+                  src={instagram}
+                  alt="Instagram Logo"
+                  className="size-16"
+                />
+              </Link>
+              <Link
+                href="https://www.linkedin.com/company/79614131/admin/page-posts/published/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Image src={linkedin} alt="LinkedIn Logo" className="size-16" />
+              </Link>
+              <Link
+                href="https://x.com/BitByte_IIITDMJ?t=wLD0SM3ZSwEwsl2V48ctWg&s=09"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Image src={x} alt="X Logo" className="size-16" />
+              </Link>
+            </div>
           </div>
         </div>
       </div>
