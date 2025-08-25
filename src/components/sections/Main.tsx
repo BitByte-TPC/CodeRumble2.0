@@ -16,22 +16,22 @@ export default function Main() {
     >
       <PageBeetles pageType="main" beetleCount={3} />
 
-      <div className="gap-10 w-[70%] flex justify-center h-44 mb-14">
+      <div className="gap-10 w-[70%] flex justify-center h-44 mb-14 flex-col lg:flex-row items-center min-w-[300px]">
         <Image
           className="w-[80%]"
           src={coderumble_white}
           alt="Coderumble"
           priority
         />
-        <div className="flex w-[20%] flex-col h-full justify-between px-5">
-          <div className="bg-white h-7 w-full"></div>
+        <div className="flex w-[20%] flex-col h-full justify-between px-5 min-w-[100px]">
+          <div className="bg-white h-5 lg:h-7 w-full"></div>
           <Image
             className="self-center"
             src={three}
             alt="Coderumble"
             priority
           />
-          <div className="bg-white h-7 w-full"></div>
+          <div className="bg-white h-5 lg:h-7 w-full"></div>
         </div>
       </div>
 
@@ -48,14 +48,22 @@ export default function Main() {
           </a>
         </div>
 
-        <div className="w-full grid grid-cols-3 items-center h-fit px-18 py-5">
+        <div className="text-white text-center mt-6 block lg:hidden">
+          <div className="text-lg text-2xl font-bold flex justify-center">
+            <span className="bg-secondary/20 py-1 px-6 border border-secondary/50 rounded-full">
+              21 / 09 / 2025
+            </span>
+          </div>
+        </div>
+
+        <div className="w-full grid grid-cols-3 items-center h-fit px-4 lg:px-18 py-0 lg:py-5">
           <div className="flex justify-start">
             <Image src={tpc_logo} alt="TPC Logo" className="h-16" />
           </div>
 
           <div className="text-white text-center">
-            <div className="text-2xl font-bold flex justify-center">
-              <span className="bg-secondary/20 py-1 px-6 border border-secondary/50 rounded-full">
+            <div className="text-lg lg:text-2xl font-bold flex justify-center">
+              <span className="bg-secondary/20 py-1 px-6 border border-secondary/50 rounded-full hidden lg:block">
                 21 / 09 / 2025
               </span>
             </div>

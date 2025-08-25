@@ -193,7 +193,7 @@ export default function Navbar() {
           </div>
 
           {/* Mobile menu toggle */}
-          <div className="md:hidden">
+          <div className="md:hidden flex justify-center items-center">
             <motion.button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               className="bg-white/20 backdrop-blur-sm p-3 rounded-lg text-white"
@@ -210,7 +210,7 @@ export default function Navbar() {
                     open: { rotate: 45, y: 6 },
                   }}
                   className="absolute h-0.5 w-6 bg-white transform origin-center"
-                  style={{ top: "6px" }}
+                  style={{ top: "6px", left: "0px" }}
                 />
                 <motion.span
                   variants={{
@@ -218,7 +218,7 @@ export default function Navbar() {
                     open: { opacity: 0 },
                   }}
                   className="absolute h-0.5 w-6 bg-white"
-                  style={{ top: "12px" }}
+                  style={{ top: "12px", left: "0px" }}
                 />
                 <motion.span
                   variants={{
@@ -226,7 +226,7 @@ export default function Navbar() {
                     open: { rotate: -45, y: -6 },
                   }}
                   className="absolute h-0.5 w-6 bg-white transform origin-center"
-                  style={{ top: "18px" }}
+                  style={{ top: "18px", left: "0px" }}
                 />
               </motion.div>
             </motion.button>
