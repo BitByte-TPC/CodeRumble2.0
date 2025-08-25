@@ -150,12 +150,7 @@ export default function Navbar() {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <div className="flex items-center space-x-2">
-                  {index === 1 && (
-                    <span className="text-sm opacity-80">2</span>
-                  )}
-                  <span>{item.label}</span>
-                </div>
+                <span>{item.label}</span>
                 
                 {/* Active indicator pill */}
                 {activeSection === item.id && (
@@ -261,12 +256,7 @@ export default function Navbar() {
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: index * 0.1 }}
                 >
-                  <div className="flex items-center space-x-3">
-                    {index === 1 && (
-                      <span className="text-sm opacity-80">2</span>
-                    )}
-                    <span>{item.label}</span>
-                  </div>
+                  <span>{item.label}</span>
                 </motion.button>
               ))}
             </div>

@@ -2,6 +2,7 @@
 import About from '@/components/sections/About'
 import Main from '@/components/sections/Main'
 import Footer from '@/components/layout/Footer'
+import Prizes from '@/components/Prizes'
 import Lenis from 'lenis';
 import { useEffect } from 'react';
 
@@ -22,6 +23,9 @@ export default function Home() {
       </section>
       <section id="about" className="min-h-screen">
         <About />
+      </section>
+      <section id="prizes" className="min-h-screen">
+        <Prizes />
       </section>
       <section id="contact" className="min-h-screen">
         <Footer />
