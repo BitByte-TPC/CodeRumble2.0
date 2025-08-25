@@ -1,77 +1,77 @@
-"use client";
+"use client"
 
-import { useState, useEffect, useRef } from "react";
-import Image from "next/image";
-import { motion, AnimatePresence } from "framer-motion";
-import cr3Logo from '@/assets/cr3.0.svg';
+import { useState, useEffect, useRef } from "react"
+import Image from "next/image"
+import { motion, AnimatePresence } from "framer-motion"
+import cr3Logo from "@/assets/cr3.0.svg"
 
 const navItems = [
   { id: "home", label: "home" },
   { id: "about", label: "about" },
   { id: "contact", label: "contact us" },
-];
+]
 
 export default function Navbar() {
-  const [activeSection, setActiveSection] = useState("home");
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  const [isHovering, setIsHovering] = useState(false);
-  const [clickedItem, setClickedItem] = useState<string | null>(null);
-  const navRef = useRef<HTMLDivElement>(null);
+  const [activeSection, setActiveSection] = useState("home")
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
+  const [isHovering, setIsHovering] = useState(false)
+  const [clickedItem, setClickedItem] = useState<string | null>(null)
+  const navRef = useRef<HTMLDivElement>(null)
 
   const scrollToSection = (sectionId: string) => {
-    setActiveSection(sectionId);
-    setIsMenuOpen(false);
-    setClickedItem(sectionId);
-    
+    setActiveSection(sectionId)
+    setIsMenuOpen(false)
+    setClickedItem(sectionId)
+
     // Remove the bulge effect after animation
-    setTimeout(() => setClickedItem(null), 800);
-    
-    const element = document.getElementById(sectionId);
+    setTimeout(() => setClickedItem(null), 800)
+
+    const element = document.getElementById(sectionId)
     if (element) {
-      const offsetTop = element.offsetTop - 100;
+      const offsetTop = element.offsetTop - 100
       window.scrollTo({
         top: offsetTop,
         behavior: "smooth",
-      });
+      })
     }
-  };
+  }
 
   const handleMouseMove = (e: React.MouseEvent) => {
     if (navRef.current) {
-      const rect = navRef.current.getBoundingClientRect();
+      const rect = navRef.current.getBoundingClientRect()
       setMousePosition({
         x: e.clientX - rect.left,
         y: e.clientY - rect.top,
-      });
+      })
     }
-  };
+  }
 
   // Track active section while scrolling
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ["home", "about", "contact"];
-      const scrollPosition = window.scrollY + 150;
+      const sections = ["home", "about", "contact"]
+      const scrollPosition = window.scrollY + 150
 
       for (let i = sections.length - 1; i >= 0; i--) {
-        const section = sections[i];
-        const element = document.getElementById(section);
+        const section = sections[i]
+        const element = document.getElementById(section)
         if (element && scrollPosition >= element.offsetTop - 150) {
-          setActiveSection(section);
-          break;
+          setActiveSection(section)
+          break
         }
       }
-    };
+    }
 
-    window.addEventListener("scroll", handleScroll);
-    handleScroll();
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+    window.addEventListener("scroll", handleScroll)
+    handleScroll()
+    return () => window.removeEventListener("scroll", handleScroll)
+  }, [])
 
   return (
     <motion.nav
       ref={navRef}
-      className="fixed top-4 left-0 right-0 z-50 px-4"
+      className="fixed top-4 left-0 right-0 z-50 px-4 bg-[#4159F5]"
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5, ease: "easeOut" }}
@@ -84,18 +84,18 @@ export default function Navbar() {
         <motion.div
           className="absolute bg-[#5066FF]/30 rounded-full pointer-events-none z-0"
           initial={{ scale: 0, opacity: 0 }}
-          animate={{ 
-            scale: 1, 
+          animate={{
+            scale: 1,
             opacity: 0.8,
             x: mousePosition.x - 100,
             y: mousePosition.y - 40,
           }}
           exit={{ scale: 0, opacity: 0 }}
-          transition={{ 
-            type: "spring", 
-            stiffness: 400, 
+          transition={{
+            type: "spring",
+            stiffness: 400,
             damping: 40,
-            opacity: { duration: 0.15 }
+            opacity: { duration: 0.15 },
           }}
           style={{
             width: 200,
@@ -108,17 +108,19 @@ export default function Navbar() {
       {/* Main navbar container with tape design */}
       <div className="relative">
         {/* Main navbar - clean rectangular design */}
-        <div className="bg-[#4159F5] h-12 relative">
+        <div className="h-12 relative">
           {/* Wavy bottom edge using CSS */}
-          <div className="absolute bottom-0 left-0 w-full h-1 bg-[#4159F5]" 
+          <div
+            className="absolute bottom-0 left-0 w-full h-1 bg-[#4159F5]"
             style={{
-              clipPath: "polygon(0% 0%, 10% 100%, 20% 0%, 30% 100%, 40% 0%, 50% 100%, 60% 0%, 70% 100%, 80% 0%, 90% 100%, 100% 0%, 100% 100%, 0% 100%)"
+              clipPath:
+                "polygon(0% 0%, 10% 100%, 20% 0%, 30% 100%, 40% 0%, 50% 100%, 60% 0%, 70% 100%, 80% 0%, 90% 100%, 100% 0%, 100% 100%, 0% 100%)",
             }}
           />
         </div>
 
         {/* Logo - bigger size to create bulging effect */}
-        <motion.div 
+        <motion.div
           className="absolute -top-3 left-6 lg:left-12"
           whileHover={{ scale: 1.1, rotateZ: 5 }}
           whileTap={{ scale: 0.95 }}
@@ -144,18 +146,18 @@ export default function Navbar() {
                 onClick={() => scrollToSection(item.id)}
                 className={`relative px-6 py-2 text-lg font-bold transition-all duration-300 rounded-full ${
                   activeSection === item.id
-                    ? "text-[#BCFF06] shadow-lg"
+                    ? "text-[#BCFF06]"
                     : "text-white hover:text-[#BCFF06]"
                 }`}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
                 <span>{item.label}</span>
-                
+
                 {/* Active indicator pill */}
                 {activeSection === item.id && (
                   <motion.div
-                    className="absolute inset-0 bg-[#2A3BCC] rounded-full -z-10"
+                    className="absolute inset-[-8] bg-[#4159F5] rounded-[20%] -z-10"
                     layoutId="activePill"
                     transition={{
                       type: "spring",
@@ -174,7 +176,7 @@ export default function Navbar() {
                     exit={{ scale: 1, opacity: 0 }}
                     transition={{
                       duration: 0.8,
-                      ease: "easeOut"
+                      ease: "easeOut",
                     }}
                   />
                 )}
@@ -205,26 +207,26 @@ export default function Navbar() {
                 <motion.span
                   variants={{
                     closed: { rotate: 0, y: 0 },
-                    open: { rotate: 45, y: 6 }
+                    open: { rotate: 45, y: 6 },
                   }}
                   className="absolute h-0.5 w-6 bg-white transform origin-center"
-                  style={{ top: '6px' }}
+                  style={{ top: "6px" }}
                 />
                 <motion.span
                   variants={{
                     closed: { opacity: 1 },
-                    open: { opacity: 0 }
+                    open: { opacity: 0 },
                   }}
                   className="absolute h-0.5 w-6 bg-white"
-                  style={{ top: '12px' }}
+                  style={{ top: "12px" }}
                 />
                 <motion.span
                   variants={{
                     closed: { rotate: 0, y: 0 },
-                    open: { rotate: -45, y: -6 }
+                    open: { rotate: -45, y: -6 },
                   }}
                   className="absolute h-0.5 w-6 bg-white transform origin-center"
-                  style={{ top: '18px' }}
+                  style={{ top: "18px" }}
                 />
               </motion.div>
             </motion.button>
@@ -264,5 +266,5 @@ export default function Navbar() {
         )}
       </AnimatePresence>
     </motion.nav>
-  );
+  )
 }
