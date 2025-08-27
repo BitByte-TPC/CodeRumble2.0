@@ -162,7 +162,11 @@ const PageBeetles = ({ pageType, beetleCount = 3 }: PageBeetlesProps) => {
               alt={beetle.isFlying ? "Flying Beetle" : "Static Beetle"}
               width={100}
               height={100}
-              className="w-25 h-25" // Fixed size: 100px x 100px
+              className={
+                beetle.isFlying
+                  ? "scale-[250%] rotate-45 duration-500"
+                  : "w-25 h-25"
+              }
               style={{
                 width: "100px",
                 height: "100px",
