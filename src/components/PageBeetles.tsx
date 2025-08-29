@@ -90,9 +90,8 @@ const PageBeetles = ({ pageType, beetleCount = 2 }: PageBeetlesProps) => {
   }
 
   const [beetles, setBeetles] = useState<Beetle[]>(getInitialPositions())
-  const animationFrameRef = useRef<number>()
-  const wanderIntervalRef = useRef<NodeJS.Timeout>()
-
+  const animationFrameRef = useRef<number | null>(null)
+  const wanderIntervalRef = useRef<NodeJS.Timeout | null>(null)
   // Calculate rotation angle based on movement direction
   const calculateRotation = (from: BeetlePosition, to: BeetlePosition): number => {
     const dx = to.x - from.x
