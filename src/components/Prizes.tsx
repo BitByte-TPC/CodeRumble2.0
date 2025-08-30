@@ -12,41 +12,36 @@ export default function Prizes() {
       {/* Content container */}
       <div className="container mx-auto px-4 py-8 flex flex-col items-center justify-center min-h-screen">
         {/* Headline */}
-        <h1 className="text-white font-cocogoose text-2xl md:text-[44px] text-center mb-16 lg:mb-24">
+        <h1 className="text-white font-cocogoose lg:text-2xl text-3xl md:text-[44px] text-center mb-16 lg:mb-24">
           Now, the PRIZES!!
         </h1>
         
         {/* Bars and cups container */}
         <div className="relative w-full max-w-6xl">
           {/* Trophy cups - aligned at same level */}
-          <div className="absolute -top-20 left-6 lg:left-16 z-10">
+          <div className="absolute lg:-top-20 -top-10 left-2 lg:left-16 z-10 w-16 lg:w-30">
             <Image
               src={cup}
               alt="First place trophy"
-              width={100}
-              height={100}
-              className="drop-shadow-lg"
+              className="drop-shadow-lg w-full"
               style={{ transform: 'rotate(-20deg)' }}
             />
           </div>
           
-          <div className="absolute -top-10 right-6 lg:right-16 z-10">
+          <div className="absolute -top-10 right-1 lg:right-16 z-10 w-18 lg:w-30">
             <Image
               src={cup2}
               alt="Third place trophy"
-              width={110}
-              height={110}
-              className="drop-shadow-lg"
+              
+              className="drop-shadow-lg w-full"
               style={{ transform: 'rotate(18deg)' }}
             />
           </div>
           
-          <div className="flex items-end justify-center gap-8 lg:gap-12">
+          <div className="flex items-end justify-center gap-2 lg:gap-12">
             {/* Left bar - Rs 5000 (second place) */}
             <div className="relative flex flex-col items-center">
-              <div className="absolute -top-8 left-0 right-0 text-center z-20">
                 <span className="text-white font-mabry font-bold text-2xl lg:text-3xl whitespace-nowrap">Rs 6000</span>
-              </div>
               <Image
                 src={first || "/placeholder.svg"}
                 alt="Second place bar - Rs 5000"
@@ -58,9 +53,7 @@ export default function Prizes() {
 
             {/* Middle bar - Rs 8000 (first place - tallest) */}
             <div className="relative flex flex-col items-center">
-              <div className="absolute -top-8 left-0 right-0 text-center z-20">
                 <span className="text-white font-mabry font-bold text-3xl lg:text-3xl whitespace-nowrap">Rs 10000</span>
-              </div>
               <Image
                 src={second || "/placeholder.svg"}
                 alt="First place bar - Rs 8000"
@@ -73,9 +66,8 @@ export default function Prizes() {
 
             {/* Right bar - Rs 3000 (third place - shortest) */}
             <div className="relative flex flex-col items-center">
-              <div className="absolute -top-8 left-0 right-0 text-center z-20">
                 <span className="text-white font-mabry font-bold text-xl lg:text-3xl whitespace-nowrap">Rs 4000</span>
-              </div>
+             
               <Image
                 src={third || "/placeholder.svg"}
                 alt="Third place bar - Rs 3000"

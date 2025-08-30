@@ -82,3 +82,25 @@ body {
   }
 }
 
+/* Recommended: Pulse with Scale */
+@keyframes pulse-glow {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(163, 230, 53, 0.7);
+    }
+    40% {
+        transform: scale(1.02);
+        box-shadow: 0 0 0 8px rgba(163, 230, 53, 0.4);
+    }
+    70% {
+        box-shadow: 0 0 0 12px rgba(163, 230, 53, 0);
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(163, 230, 53, 0);
+    }
+}
+
+.pulse-button {
+    animation: pulse-glow 1.6s infinite;
+}
