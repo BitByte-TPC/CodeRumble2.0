@@ -5,7 +5,6 @@ import Footer from "@/components/layout/Footer"
 import Prizes from "@/components/Prizes"
 import Lenis from "lenis"
 import { useEffect } from "react"
-import PageBeetles from '@/components/PageBeetles'
 
 export default function Home() {
   useEffect(() => {
