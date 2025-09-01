@@ -67,10 +67,10 @@ export default function Main() {
             {/* Logo and main content above DotMesh */}
             <div className="gap-10 lg:w-[70%] w-[94%] flex justify-center h-44 bg-amber-200/200 lg:mb-14 mb-40 flex-col lg:flex-row items-center min-w-[300px] z-10 relative">
               <Image className=" lg:w-[80%] w-[430px]" src={coderumble_white || "/placeholder.svg"} alt="Coderumble" priority />
-              <div className="flex w-[20%] flex-col h-full justify-between px-5 min-w-[100px]">
-                <div className="bg-white h-5 lg:h-7 w-full"></div>
-                <Image className="self-center" src={three || "/placeholder.svg"} alt="Coderumble" priority />
-                <div className="bg-white h-5 lg:h-7 w-full"></div>
+              <div className="relative overflow-hidden flex items-center justify-center w-[20%] min-w-[100px] px-5 h-full">
+                <Image className="z-[1]" src={three || "/placeholder.svg"} alt="Coderumble 3" priority />
+                <div className="curtain curtain-top pointer-events-none" aria-hidden="true" />
+                <div className="curtain curtain-bottom pointer-events-none" aria-hidden="true" />
               </div>
             </div>
 
