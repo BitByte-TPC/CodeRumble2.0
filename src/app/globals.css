@@ -5,7 +5,7 @@
   --foreground: #171717;
 }
 
-@theme{
+@theme {
   --color-primary: #BCFF06;
   --color-secondary: #4159F5;
 }
@@ -26,6 +26,7 @@ body {
 .font-cocogoose {
   font-family: var(--font-cocogoose-pro);
 }
+
 .font-mabry {
   font-family: var(--font-mabry-pro);
 }
@@ -72,10 +73,12 @@ body {
     transform: scale(0) translate(-50%, -50%);
     opacity: 0.8;
   }
+
   50% {
     transform: scale(4) translate(-12.5%, -12.5%);
     opacity: 0.4;
   }
+
   100% {
     transform: scale(8) translate(-6.25%, -6.25%);
     opacity: 0;
@@ -84,23 +87,106 @@ body {
 
 /* Recommended: Pulse with Scale */
 @keyframes pulse-glow {
-    0% {
-        transform: scale(1);
-        box-shadow: 0 0 0 0 rgba(163, 230, 53, 0.7);
-    }
-    40% {
-        transform: scale(1.02);
-        box-shadow: 0 0 0 8px rgba(163, 230, 53, 0.4);
-    }
-    70% {
-        box-shadow: 0 0 0 12px rgba(163, 230, 53, 0);
-    }
-    100% {
-        transform: scale(1);
-        box-shadow: 0 0 0 0 rgba(163, 230, 53, 0);
-    }
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(163, 230, 53, 0.7);
+  }
+
+  40% {
+    transform: scale(1.02);
+    box-shadow: 0 0 0 8px rgba(163, 230, 53, 0.4);
+  }
+
+  70% {
+    box-shadow: 0 0 0 12px rgba(163, 230, 53, 0);
+  }
+
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(163, 230, 53, 0);
+  }
 }
 
 .pulse-button {
-    animation: pulse-glow 1.6s infinite;
+  animation: pulse-glow 1.6s infinite;
+}
+
+.curtain {
+  position: absolute;
+  left: 0;
+  right: 0;
+  background: #ffffff;
+  z-index: 2;
+  --bar-height-final: 20px;
+  /* final bar height on mobile */
+  will-change: top, height, transform;
+}
+
+/* Top bar: start joined at center covering top half, then move up and shrink */
+.curtain-top {
+  /* initial: joined at center */
+  top: 50%;
+  height: 20%;
+  transform: translateY(-100%);
+  animation: curtain-top-reveal 1000ms ease-out 20ms forwards;
+}
+
+/* Bottom bar: start joined at center covering bottom half, then move down and shrink */
+.curtain-bottom {
+  /* initial: joined at center */
+  top: 50%;
+  height: 20%;
+  transform: translateY(0);
+  animation: curtain-bottom-reveal 1000ms ease-out 20ms forwards;
+}
+
+@keyframes curtain-top-reveal {
+  0% {
+    top: 50%;
+    height: 30%;
+    transform: translateY(-100%);
+  }
+
+  100% {
+    top: 0;
+    height: var(--bar-height-final);
+    transform: translateY(0);
+  }
+}
+
+@keyframes curtain-bottom-reveal {
+  0% {
+    top: 50%;
+    height: 30%;
+    transform: translateY(0);
+  }
+
+  100% {
+    top: calc(100% - var(--bar-height-final));
+    height: var(--bar-height-final);
+    transform: translateY(0);
+  }
+}
+
+@media (min-width: 1024px) {
+  .curtain {
+    --bar-height-final: 28px;
+    /* final bar height on large screens */
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .curtain-top {
+    top: 0;
+    height: var(--bar-height-final);
+    transform: none;
+    animation: none;
+  }
+
+  .curtain-bottom {
+    top: calc(100% - var(--bar-height-final));
+    height: var(--bar-height-final);
+    transform: none;
+    animation: none;
+  }
 }
