@@ -8,6 +8,9 @@ export const metadata = {
   metadataBase: new URL("https://www.code-rumble.in"),
   title: "Coderumble 3.0",
   description: "Event Date: 27th Sept 2025. Let the code speak!",
+  icons: {
+    icon: "/favicon.svg",
+  },
   openGraph: {
     title: "Coderumble 3.0",
     description: "Event Date: 27th Sept 2025. Let the code speak!",
