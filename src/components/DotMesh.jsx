@@ -1,3 +1,4 @@
+"use client"
 import React, { useRef, useEffect } from 'react';
 import * as THREE from 'three';
 import vertex from './shaders/vertex.glsl';
@@ -9,20 +10,20 @@ const HEIGHT = 40;
 const TOTAL = WIDTH * HEIGHT;
 
 export default function DotMesh() {
-    const containerRef = useRef(null);
+  const containerRef = useRef(null);
 
-    useEffect(() => {
-        if (!containerRef.current) return;
-        const container = containerRef.current;
-        const uniforms = getDefaultUniforms();
-        const scene = new THREE.Scene();
-        const renderer = createRenderer({ antialias: true });
-        renderer.setSize(container.clientWidth, container.clientHeight);
-        container.appendChild(renderer.domElement);
+  useEffect(() => {
+    if (!containerRef.current) return;
+    const container = containerRef.current;
+    const uniforms = getDefaultUniforms();
+    const scene = new THREE.Scene();
+    const renderer = createRenderer({ antialias: true });
+    renderer.setSize(container.clientWidth, container.clientHeight);
+    container.appendChild(renderer.domElement);
 
-        const camera = createCamera(50, 0.01, 1000);
-        camera.position.set(-2.0, 1.5, -0.4);
-        camera.lookAt(0, 0, 0);
+    const camera = createCamera(50, 0.01, 1000);
+    camera.position.set(-2.0, 1.5, -0.4);
+    camera.lookAt(0, 0, 0);
 
     const positions = new Float32Array(TOTAL * 3);
     const reference = new Float32Array(TOTAL * 2);
