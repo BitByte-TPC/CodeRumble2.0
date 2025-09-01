@@ -139,14 +139,14 @@ void main() {
   ps2 = smoothstep(0.8, 1.0, tmp);
 
   float noiseHeight = 0.0;
-  float smoothScale = 0.75; // smaller = smoother
+  float smoothScale = 2.2; // smaller = smoother
   vec3 timeOffset = vec3(u_time * 0.3, 0.0, u_time * 0.3);
   if (noiseAlgo == 1) {
     noiseVal = cnoise(basePosition * smoothScale + timeOffset);
-    noiseHeight = noiseVal * 0.5; // scale height effect
+    noiseHeight = noiseVal * 0.2; // scale height effect
   }
 
-  tweakedPos.y += noiseHeight + 0.6; // Offset plane up by 0.5 units
+  tweakedPos.y += noiseHeight+0.4; // Offset plane up by 0.5 units
   vec4 mvPosition = modelViewMatrix * vec4(tweakedPos, 1.);
   vDepth = -mvPosition.z; // positive depth value
 

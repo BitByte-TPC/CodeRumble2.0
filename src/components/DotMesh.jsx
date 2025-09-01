@@ -22,9 +22,8 @@ export default function DotMesh() {
     container.appendChild(renderer.domElement);
 
     const camera = createCamera(50, 0.01, 1000);
-    camera.position.set(-2.0, 1.5, -0.4);
+    camera.position.set(-2.0, 0.8, 0.00);
     camera.lookAt(0, 0, 0);
-
     const positions = new Float32Array(TOTAL * 3);
     const reference = new Float32Array(TOTAL * 2);
     const basePositions = new Float32Array(TOTAL * 3);

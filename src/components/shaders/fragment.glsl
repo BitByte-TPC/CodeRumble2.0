@@ -18,8 +18,8 @@ void main() {
     if (length(c) > 0.5) discard;
     // Fade based on distance from the chosen corner
     float minDist = 0.0;
-    float maxDist = 3.0; // make fade sharper and more visible
-    float fade = 1.0 - clamp((vCornerDist - minDist) / (maxDist - minDist), 0.0, 1.0);
+    float maxDist = 5.0; // make fade sharper and more visible
+    float fade = 0.9 - clamp((vCornerDist - minDist) / (maxDist - minDist), 0.0, 1.0);
     fade = clamp(fade, 0.1, 1.0); // ensure some minimum brightness
 
     // Use a static color (lime green) for all points
