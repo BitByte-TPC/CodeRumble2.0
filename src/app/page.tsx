@@ -2,6 +2,7 @@ import About from "@/components/sections/About"
 import Main from "@/components/sections/Main"
 import Footer from "@/components/layout/Footer"
 import Prizes from "@/components/Prizes"
+import Sponsors from "@/components/Sponsors"
 import ClientWrapper from "@/components/ClientWrapper"
 
 export const metadata = {
@@ -18,7 +19,7 @@ export const metadata = {
     siteName: "Coderumble",
     images: [
       {
-        url: "/meta.png", 
+        url: "/meta.png",
         width: 1200,
         height: 630,
         alt: "Coderumble 3.0 Banner",
@@ -47,6 +48,9 @@ export default function Home() {
         </section>
         <section id="prizes" className="min-h-screen">
           <Prizes />
+        </section>
+        <section id="sponsors" className="min-h-screen">
+          <Sponsors />
         </section>
         <section id="contact">
           <Footer />
