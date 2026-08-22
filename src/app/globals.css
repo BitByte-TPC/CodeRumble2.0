@@ -39,7 +39,11 @@ body {
    -------------------------------------------------------------------------- */
 
 .punch-cta {
+  /* The punch row rides inside this padding, so the two share one source of
+     truth — the row's offset is computed from this value below. */
+  --cta-pad-block: 1.6vw;
   position: relative;
+  padding-block: var(--cta-pad-block);
   transition:
     transform 200ms cubic-bezier(0.2, 0, 0, 1),
     box-shadow 200ms cubic-bezier(0.2, 0, 0, 1);
@@ -86,11 +90,10 @@ body {
    interpreted line along the top and punches the columns below it. */
 .punch-row {
   position: absolute;
-  /* The row rides in the CTA's 1.6vw bottom padding while the label clamps in
-     px, so the offset has to track the vw: 0.9vw - 0.13em sits the holes just
-     off-center in that band, biased toward the text. The cap keeps them from
-     drifting away from the label once the type stops growing past 1440px. */
-  bottom: clamp(0.12em, 0.9vw - 0.13em, 0.5em);
+  /* Centre the holes in the padding band. The band is sized in vw while the
+     label clamps in px, so this has to be computed rather than fixed; the cap
+     stops the holes drifting off the label once the type stops growing. */
+  bottom: min(calc((var(--cta-pad-block) - 0.26em) / 2), 0.5em);
   left: 50%;
   display: flex;
   transform: translateX(-50%);

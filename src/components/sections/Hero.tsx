@@ -4,12 +4,17 @@ import instagramIcon from "@/assets/instagram-icon.png"
 import linkedinIcon from "@/assets/linkedin-icon.png"
 import xIcon from "@/assets/x-icon.png"
 
+const REGISTER_URL = "https://forms.gle/C39bK8woRXQ7SyxF8"
 const REGISTER_LABEL = "Register"
 const PUNCH_STEP_MS = 28
 
 export default function Hero() {
+  // The hero keeps the design's ratio wherever there's room for it and falls
+  // back to a viewport-height floor on phones, where that ratio would leave a
+  // 297px letterbox. Whichever is taller wins, so the height never jumps — svh
+  // rather than vh so the mobile URL bar doesn't resize it mid-scroll.
   return (
-    <section className="grid w-full aspect-[1440/1142.33]">
+    <section className="grid w-full aspect-[1440/1142.33] min-h-[68svh]">
       <Image
         src="/hero-bg.png"
         alt="Code Rumble 4.0 — something legendary is loading"
@@ -22,16 +27,14 @@ export default function Hero() {
       <div className="col-start-1 row-start-1 flex flex-col justify-end gap-[3%] px-[6.5%] pb-[7%]">
         <div className="flex items-start justify-between gap-[4%]">
           <p
-            className="whitespace-nowrap font-plex-mono font-bold text-[#f85a19] leading-[0.828]"
-            style={{ fontSize: "clamp(1.75rem, 11.4703vw, 165.173px)" }}
+            className="whitespace-nowrap font-plex-mono font-bold text-[#f85a19] leading-[0.828] text-[clamp(1.75rem,11.4703vw,165.173px)]"
           >
             <span className="block">code</span>
             <span className="block">rumble</span>
           </p>
 
           <p
-            className="whitespace-nowrap font-plex-mono font-bold text-[#f85a19] leading-[0.6366] tracking-[-0.17em]"
-            style={{ fontSize: "clamp(3rem, 21.6785vw, 312.17px)" }}
+            className="whitespace-nowrap font-plex-mono font-bold text-[#f85a19] leading-[0.6366] tracking-[-0.17em] text-[clamp(3rem,21.6785vw,312.17px)]"
           >
             4.0
           </p>
@@ -39,8 +42,10 @@ export default function Hero() {
 
         <div className="flex items-center justify-between">
           <a
-            href="#register"
-            className="punch-cta flex items-center justify-center rounded-[1.39vw] bg-[#060606] px-[3vw] py-[1.6vw] shadow-[2vw_1.6vw_11.4vw_0_rgba(0,0,0,0.45)]"
+            href={REGISTER_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="punch-cta flex items-center justify-center rounded-[1.39vw] bg-[#060606] px-[3vw] shadow-[2vw_1.6vw_11.4vw_0_rgba(0,0,0,0.45)]"
             style={{ fontSize: "clamp(0.9rem, 1.6667vw, 24px)" }}
           >
             <span className="font-plex-mono font-medium text-[#e4e2dc]">
@@ -64,7 +69,7 @@ export default function Hero() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Instagram"
-              className="punch-tab w-[6.3vw] rounded-[0.3vw]"
+              className="punch-tab w-[max(6.3vw,24px)] rounded-[0.3vw]"
             >
               <Image src={instagramIcon} alt="Instagram" className="h-full w-full" />
             </a>
@@ -73,7 +78,7 @@ export default function Hero() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="LinkedIn"
-              className="punch-tab w-[6.3vw] rounded-[0.3vw]"
+              className="punch-tab w-[max(6.3vw,24px)] rounded-[0.3vw]"
             >
               <Image src={linkedinIcon} alt="LinkedIn" className="h-full w-full" />
             </a>
@@ -82,7 +87,7 @@ export default function Hero() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="X"
-              className="punch-tab w-[6.3vw] rounded-[0.3vw]"
+              className="punch-tab w-[max(6.3vw,24px)] rounded-[0.3vw]"
             >
               <Image src={xIcon} alt="X" className="h-full w-full" />
             </a>

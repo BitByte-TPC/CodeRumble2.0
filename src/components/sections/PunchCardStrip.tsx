@@ -120,11 +120,13 @@ export default function PunchCardStrip() {
       className="w-full bg-[#060606] px-[5.07%] py-[3.7%]"
       aria-hidden="true"
     >
-      <div ref={gridRef} className="flex rotate-180 flex-col gap-[10px] sm:gap-[14px]">
+      {/* Gaps are in vw, not px: the dots are sized by what 40 columns leave
+          over, so a fixed gap eats the whole row on a phone. */}
+      <div ref={gridRef} className="flex rotate-180 flex-col gap-[0.97vw]">
         {ROWS.map((columns, rowI) => (
           <div
             key={rowI}
-            className="grid gap-x-[6px] sm:gap-x-[8px]"
+            className="grid gap-x-[0.56vw]"
             style={{ gridTemplateColumns: `repeat(${COLUMN_COUNT}, 1fr)` }}
           >
             {range(0, COLUMN_COUNT - 1).map((col) => {
