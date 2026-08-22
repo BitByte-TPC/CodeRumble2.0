@@ -25,3 +25,7 @@ body {
 .font-mabry {
   font-family: var(--font-mabry-pro);
 }
+
+.font-plex-mono {
+  font-family: var(--font-ibm-plex-mono);
+}

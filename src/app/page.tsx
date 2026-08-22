@@ -1,4 +1,7 @@
 import ClientWrapper from "@/components/ClientWrapper"
+import Hero from "@/components/sections/Hero"
+import PunchCardStrip from "@/components/sections/PunchCardStrip"
+import Footer from "@/components/sections/Footer"
 
 export const metadata = {
   metadataBase: new URL("https://www.code-rumble.in"),
@@ -34,7 +37,9 @@ export const metadata = {
 export default function Home() {
   return (
     <ClientWrapper>
-      <div />
+      <Hero />
+      <PunchCardStrip />
+      <Footer />
     </ClientWrapper>
   )
 }

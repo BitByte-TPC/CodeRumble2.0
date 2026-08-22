@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
 import localFont from 'next/font/local'
 
@@ -37,6 +37,12 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const ibmPlexMono = IBM_Plex_Mono({
+  variable: "--font-ibm-plex-mono",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+});
+
 export const metadata: Metadata = {
   title: "Coderumble",
   description: "Coderumble Website",
@@ -53,9 +59,9 @@ export default function RootLayout({
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${cocogoosePro.variable} ${mabryPro.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${cocogoosePro.variable} ${mabryPro.variable} ${ibmPlexMono.variable} antialiased`}
       >
-        <main>{children}</main>
+        <main className="flex flex-col">{children}</main>
       </body>
     </html>
   );
