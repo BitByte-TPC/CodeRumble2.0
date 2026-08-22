@@ -29,3 +29,161 @@ body {
 .font-plex-mono {
   font-family: var(--font-ibm-plex-mono);
 }
+
+/* --- Punch-card interactions -----------------------------------------------
+   Two rules hold this vocabulary together:
+   1. A hole is light coming through the card, so every hole is #f85a19 on the
+      dark stock — the same reading as the footer dot grid.
+   2. Machine motion is short and flat. A keypunch has no spring in it, so
+      nothing here bounces, overshoots, or eases out slowly.
+   -------------------------------------------------------------------------- */
+
+.punch-cta {
+  position: relative;
+  transition:
+    transform 200ms cubic-bezier(0.2, 0, 0, 1),
+    box-shadow 200ms cubic-bezier(0.2, 0, 0, 1);
+}
+
+/* Hover states are gated on a real pointer. On touch, :hover latches after a
+   tap and would leave a card sitting punched and lifted. */
+@media (hover: hover) and (pointer: fine) {
+  .punch-cta:hover {
+    transform: translateY(-0.1em);
+  }
+
+  .punch-cta:hover .punch-hole::before {
+    opacity: 1;
+    transform: scale(1);
+    transition-delay: var(--punch-delay, 0ms);
+  }
+
+  .punch-tab:hover {
+    transform: translateY(-3px);
+  }
+
+  .punch-tab:hover::after {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.punch-cta:focus-visible {
+  transform: translateY(-0.1em);
+  outline: 2px solid #f85a19;
+  outline-offset: 4px;
+}
+
+/* The strike: the card seats hard against the die and holds there. */
+.punch-cta:active {
+  transform: translateY(0.06em);
+  box-shadow: 0.6vw 0.5vw 3.5vw 0 rgba(0, 0, 0, 0.5);
+  transition-duration: 70ms;
+}
+
+/* One hole per character of the label, laid out on IBM Plex Mono's 0.6em
+   advance so hole n sits under character n — the way a keypunch prints the
+   interpreted line along the top and punches the columns below it. */
+.punch-row {
+  position: absolute;
+  /* The row rides in the CTA's 1.6vw bottom padding while the label clamps in
+     px, so the offset has to track the vw: 0.9vw - 0.13em sits the holes just
+     off-center in that band, biased toward the text. The cap keeps them from
+     drifting away from the label once the type stops growing past 1440px. */
+  bottom: clamp(0.12em, 0.9vw - 0.13em, 0.5em);
+  left: 50%;
+  display: flex;
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+
+.punch-hole {
+  display: flex;
+  width: 0.6em;
+  justify-content: center;
+}
+
+.punch-hole::before {
+  content: "";
+  width: 0.26em;
+  height: 0.26em;
+  border-radius: 9999px;
+  background: #f85a19;
+  opacity: 0;
+  transform: scale(0.4);
+  transition:
+    opacity 90ms linear,
+    transform 90ms linear;
+}
+
+/* Punching in steps left to right, one column at a time. Leaving resets the
+   delay to 0, so the card clears in a single pass instead of unwinding. */
+.punch-cta:focus-visible .punch-hole::before {
+  opacity: 1;
+  transform: scale(1);
+  transition-delay: var(--punch-delay, 0ms);
+}
+
+/* Social tiles carry the same vocabulary at one column instead of eight: the
+   card advances in the feed and a single hole goes through it. steps(2) keeps
+   that travel quantized — machine advance, not a glide. The font-size is here
+   only so the hole matches the CTA's; these tiles hold no text. */
+.punch-tab {
+  position: relative;
+  font-size: clamp(0.9rem, 1.6667vw, 24px);
+  transition: transform 160ms steps(2, end);
+}
+
+.punch-tab::after {
+  content: "";
+  position: absolute;
+  bottom: -0.7em;
+  left: 50%;
+  width: 0.26em;
+  height: 0.26em;
+  margin-left: -0.13em;
+  border-radius: 9999px;
+  background: #f85a19;
+  opacity: 0;
+  transform: scale(0.4);
+  transition:
+    opacity 90ms linear,
+    transform 90ms linear;
+}
+
+.punch-tab:focus-visible {
+  transform: translateY(-3px);
+  outline: 2px solid #f85a19;
+  outline-offset: 4px;
+}
+
+.punch-tab:focus-visible::after {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.punch-tab:active {
+  transform: translateY(1px);
+  transition-duration: 70ms;
+}
+
+/* Reduced motion keeps the feedback and drops the travel: holes still punch,
+   nothing moves. */
+@media (prefers-reduced-motion: reduce) {
+  .punch-cta,
+  .punch-tab,
+  .punch-tab::after,
+  .punch-hole::before {
+    transition-duration: 1ms;
+    transition-delay: 0ms;
+  }
+
+  .punch-cta:hover,
+  .punch-cta:focus-visible,
+  .punch-cta:active,
+  .punch-tab:hover,
+  .punch-tab:focus-visible,
+  .punch-tab:active {
+    transform: none;
+  }
+}

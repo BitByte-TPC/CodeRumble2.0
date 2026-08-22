@@ -1,7 +1,11 @@
+import type { CSSProperties } from "react"
 import Image from "next/image"
 import instagramIcon from "@/assets/instagram-icon.png"
 import linkedinIcon from "@/assets/linkedin-icon.png"
 import xIcon from "@/assets/x-icon.png"
+
+const REGISTER_LABEL = "Register"
+const PUNCH_STEP_MS = 28
 
 export default function Hero() {
   return (
@@ -36,41 +40,49 @@ export default function Hero() {
         <div className="flex items-center justify-between">
           <a
             href="#register"
-            className="flex items-center justify-center rounded-[1.39vw] bg-[#060606] px-[3vw] py-[1.6vw] shadow-[2vw_1.6vw_11.4vw_0_rgba(0,0,0,0.45)] transition-transform hover:scale-[1.03]"
+            className="punch-cta flex items-center justify-center rounded-[1.39vw] bg-[#060606] px-[3vw] py-[1.6vw] shadow-[2vw_1.6vw_11.4vw_0_rgba(0,0,0,0.45)]"
+            style={{ fontSize: "clamp(0.9rem, 1.6667vw, 24px)" }}
           >
-            <span
-              className="font-plex-mono font-medium text-[#e4e2dc]"
-              style={{ fontSize: "clamp(0.9rem, 1.6667vw, 24px)" }}
-            >
-              Register
+            <span className="font-plex-mono font-medium text-[#e4e2dc]">
+              {REGISTER_LABEL}
+            </span>
+
+            <span aria-hidden="true" className="punch-row">
+              {Array.from(REGISTER_LABEL, (_, i) => (
+                <span
+                  key={i}
+                  className="punch-hole"
+                  style={{ "--punch-delay": `${i * PUNCH_STEP_MS}ms` } as CSSProperties}
+                />
+              ))}
             </span>
           </a>
 
           <div className="flex gap-[2vw]">
             <a
-              href="https://instagram.com"
+              href="https://www.instagram.com/bitbyte.tpc"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Instagram"
-              className="w-[6.3vw] overflow-hidden rounded-[0.3vw]"
+              className="punch-tab w-[6.3vw] rounded-[0.3vw]"
             >
               <Image src={instagramIcon} alt="Instagram" className="h-full w-full" />
             </a>
             <a
-              href="https://linkedin.com"
+              href="https://www.linkedin.com/company/79614131/"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="LinkedIn"
-              className="w-[6.3vw] overflow-hidden rounded-[0.3vw]"
+              className="punch-tab w-[6.3vw] rounded-[0.3vw]"
             >
               <Image src={linkedinIcon} alt="LinkedIn" className="h-full w-full" />
             </a>
             <a
-              href="https://x.com"
+              href="https://x.com/BitByte_IIITDMJ"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="X"
-              className="w-[6.3vw] overflow-hidden rounded-[0.3vw]"
+              className="punch-tab w-[6.3vw] rounded-[0.3vw]"
             >
               <Image src={xIcon} alt="X" className="h-full w-full" />
             </a>
