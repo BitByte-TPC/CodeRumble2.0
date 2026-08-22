@@ -1,20 +1,15 @@
-import About from "@/components/sections/About"
-import Main from "@/components/sections/Main"
-import Footer from "@/components/layout/Footer"
-import Prizes from "@/components/Prizes"
-import Sponsors from "@/components/Sponsors"
 import ClientWrapper from "@/components/ClientWrapper"
 
 export const metadata = {
   metadataBase: new URL("https://www.code-rumble.in"),
-  title: "Coderumble 3.0",
-  description: "Event Date: 21st Sept 2025. Let the code speak!",
+  title: "Coderumble",
+  description: "Coderumble by The Programming Club, IIITDM Jabalpur.",
   icons: {
     icon: "/favicon.svg",
   },
   openGraph: {
-    title: "Coderumble 3.0",
-    description: "Event Date: 21st Sept 2025. Let the code speak!",
+    title: "Coderumble",
+    description: "Coderumble by The Programming Club, IIITDM Jabalpur.",
     url: "https://www.code-rumble.in/",
     siteName: "Coderumble",
     images: [
@@ -22,7 +17,7 @@ export const metadata = {
         url: "/meta.png",
         width: 1200,
         height: 630,
-        alt: "Coderumble 3.0 Banner",
+        alt: "Coderumble Banner",
       },
     ],
     locale: "en_US",
@@ -30,8 +25,8 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Coderumble 3.0",
-    description: "Event Date: 21st Sept 2025. Let the code speak!",
+    title: "Coderumble",
+    description: "Coderumble by The Programming Club, IIITDM Jabalpur.",
     images: ["/meta.png"],
   },
 }
@@ -39,23 +34,7 @@ export const metadata = {
 export default function Home() {
   return (
     <ClientWrapper>
-      <div>
-        <section id="home" className="min-h-screen">
-          <Main />
-        </section>
-        <section id="about" className="min-h-screen">
-          <About />
-        </section>
-        <section id="prizes" className="min-h-screen">
-          <Prizes />
-        </section>
-        <section id="sponsors" className="min-h-screen">
-          <Sponsors />
-        </section>
-        <section id="contact">
-          <Footer />
-        </section>
-      </div>
+      <div />
     </ClientWrapper>
   )
 }

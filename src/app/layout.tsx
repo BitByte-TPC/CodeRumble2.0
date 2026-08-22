@@ -2,8 +2,6 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import localFont from 'next/font/local'
-import Navbar from '@/components/sections/Navbar'
-import PageBeetles from '@/components/PageBeetles'
 
 const cocogoosePro = localFont({
   src: [
@@ -40,8 +38,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "CR 3.0",
-  description: "CR 3.0 Website",
+  title: "Coderumble",
+  description: "Coderumble Website",
 };
 
 export default function RootLayout({
@@ -57,11 +55,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${cocogoosePro.variable} ${mabryPro.variable} antialiased`}
       >
-        <Navbar />
-        <main className="pt-16">
-          {children}
-          <PageBeetles beetleCount={2} pageType="main"/>
-        </main>
+        <main>{children}</main>
       </body>
     </html>
   );
