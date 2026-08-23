@@ -5,7 +5,7 @@ import linkedinIcon from "@/assets/linkedin-icon.png"
 import xIcon from "@/assets/x-icon.png"
 
 const REGISTER_URL = "https://forms.gle/C39bK8woRXQ7SyxF8"
-const REGISTER_LABEL = "Register"
+const REGISTER_LABEL = "Pre-register"
 const PUNCH_STEP_MS = 28
 
 export default function Hero() {
