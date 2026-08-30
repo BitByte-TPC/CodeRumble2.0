@@ -109,3 +109,35 @@ body {
     transform: none;
   }
 }
+
+/* --- Typewriter caret -------------------------------------------------------
+   The caret is an empty inline ::after on the typed run, not an element in the
+   text: an inline box carries a border but no line-break opportunity, so the
+   paragraph wraps the same way at every stage of the type-on. Its 2px of
+   advance is given straight back as negative margin so the untyped tail behind
+   it never moves. The blink is steps(1) — same flat machine motion as the
+   punch-card interactions above, no fade.
+   -------------------------------------------------------------------------- */
+.typewriter::after {
+  content: "";
+  border-left: 2px solid #f85a19;
+  margin-right: -2px;
+  animation: typewriter-caret 1s steps(1, end) infinite;
+}
+
+@keyframes typewriter-caret {
+  0%,
+  50% {
+    opacity: 1;
+  }
+  50.01%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .typewriter::after {
+    content: none;
+  }
+}
