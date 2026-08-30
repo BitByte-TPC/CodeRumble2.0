@@ -5,7 +5,7 @@ import { useEffect, useState } from "react"
 // IST is a fixed UTC+5:30 with no DST, so both ends of the window are plain
 // UTC instants: registrations open 30 Aug 2026, 6pm IST, and the clock starts
 // running 26 Aug 2026, 5pm IST.
-const OPENS_AT = Date.UTC(2026, 7, 30, 12, 30)
+const OPENS_AT = Date.UTC(2026, 7, 31, 12, 30)
 const STARTS_AT = Date.UTC(2026, 7, 26, 11, 30)
 const FULL_SPAN_MS = OPENS_AT - STARTS_AT
 
