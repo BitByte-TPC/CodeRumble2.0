@@ -1,8 +1,13 @@
+import type { CSSProperties } from "react"
 import Image from "next/image"
-import RegistrationCountdown from "@/components/RegistrationCountdown"
 import instagramIcon from "@/assets/instagram-icon.png"
 import linkedinIcon from "@/assets/linkedin-icon.png"
 import xIcon from "@/assets/x-icon.png"
+
+const REGISTER_URL =
+  "https://unstop.com/p/coderumble-40-the-programming-club-tpc-1746239"
+const REGISTER_LABEL = "Register"
+const PUNCH_STEP_MS = 28
 
 export default function Hero() {
   // The frame is the bottom 683px of the 1440x1143 plate — the punched CODE
@@ -57,7 +62,30 @@ export default function Hero() {
         </div>
 
         <div className="flex items-center justify-between">
-          <RegistrationCountdown />
+          {/* One hole per character of the label, punched left to right on
+              hover or focus — the keypunch vocabulary the social tiles carry
+              at one column each. */}
+          <a
+            href={REGISTER_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="punch-cta flex items-center justify-center rounded-[1.39vw] bg-[#060606] px-[3vw] shadow-[2vw_1.6vw_11.4vw_0_rgba(0,0,0,0.45)]"
+            style={{ fontSize: "clamp(0.9rem, 1.6667vw, 24px)" }}
+          >
+            <span className="font-plex-mono font-medium text-[#e4e2dc]">
+              {REGISTER_LABEL}
+            </span>
+
+            <span aria-hidden="true" className="punch-row">
+              {Array.from(REGISTER_LABEL, (_, i) => (
+                <span
+                  key={i}
+                  className="punch-hole"
+                  style={{ "--punch-delay": `${i * PUNCH_STEP_MS}ms` } as CSSProperties}
+                />
+              ))}
+            </span>
+          </a>
 
           <div className="flex gap-[2vw]">
             <a
