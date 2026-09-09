@@ -1,67 +1,105 @@
-import Image from "next/image"
-import TypewriterText from "@/components/TypewriterText"
+"use client"
+import coderumble from '@/assets/coderumble.svg'
+import Image from 'next/image'
+import PageBeetles from '@/components/PageBeetles'
+import dynamic from 'next/dynamic'
+import { useEffect, useState } from 'react'
 
-const ABOUT_COPY =
-  "CodeRumble is the ultimate event for programmers to experience the exhilarating world of competitive programming. As a mock ICPC Regional Contest, we bring you a stimulating challenge that will push your coding skills to the limit. Unlock your problem-solving potential, tackle challenging algorithms, and rise to the top!"
+const Gear = dynamic(() => import('@/components/icons/Gear'), { ssr: false })
+const Bulb = dynamic(() => import('@/components/icons/Bulb'), { ssr: false })
+const Brain = dynamic(() => import('@/components/icons/Brain'), { ssr: false })
 
 export default function About() {
-  // Three columns split the row wherever there is width for them, sharing it
-  // 1.15 / 0.7 / 1.15: the question mark is a single glyph and only ever fills
-  // about half of an equal third, so the width it was holding empty goes to the
-  // two type blocks instead. The three still come out the same height, which is
-  // what lines them up; the mark keeps its own size, since that follows the row.
-  //
-  // That last part is what sets the breakpoint at lg rather than md. The copy
-  // is 322 characters, so its block height grows as the square of its type
-  // size over the column width; the headline's grows linearly. They track each
-  // other only while the copy can keep shrinking with the viewport, and it
-  // stops at a 12px floor around 960px — below that the column is ~200px, the
-  // copy needs 13 lines, and no headline that fits the same column can reach
-  // it. So under lg the copy drops to a full-width second row (where it also
-  // reads at a sane line length) and the headline and question mark, which do
-  // stay level, take the first row between them.
-  return (
-    <section className="w-full bg-[#060606] px-[5.07%] py-[11%] lg:py-[5.5%]">
-      <div className="grid grid-cols-2 items-center justify-items-center gap-x-[4vw] gap-y-[9vw] lg:grid-cols-[1.15fr_0.7fr_1.15fr] lg:gap-x-[3vw] lg:gap-y-0">
-        <div className="font-plex-mono">
-          <p className="font-semibold text-[#e4e2dc] text-[min(5.2vw,44px)] lg:text-[clamp(1.25rem,4vw,58px)]">
-            what_is
-          </p>
-          <p className="mt-[0.12em] font-bold text-[#f85a19] leading-[0.828] text-[min(10.4vw,88px)] lg:text-[clamp(2.5rem,8vw,116px)]">
-            <span className="block">code</span>
-            <span className="block">rumble</span>
-          </p>
+    const [isDesktop, setIsDesktop] = useState(false)
+
+    useEffect(() => {
+        const check = () => setIsDesktop(window.innerWidth >= 768)
+        check()
+        window.addEventListener('resize', check)
+        return () => window.removeEventListener('resize', check)
+    }, [])
+
+    return (
+        <div className="min-h-screen flex justify-center py-10 md:py-20 px-4 relative" id="about">
+            {/* About Page Beetles */}
+            {/* <PageBeetles pageType="about" beetleCount={3} /> */}
+
+            <div className='w-full md:w-[60%] flex flex-col gap-10 md:gap-20 items-center'>
+                <div className='bg-amber-500/0 flex flex-col gap-6 md:gap-8 w-full'>
+                    <div className='flex flex-col md:flex-row justify-center items-center md:items-baseline gap-2 md:gap-6 text-3xl md:text-5xl'>
+                        <p className='font-cocogoose text-center'>So, What is</p>
+                        <Image
+                            className='h-14 md:h-[56px] w-fit'
+                            src={coderumble}
+                            alt="Coderumble"
+                            priority
+                        />
+                        <p className='font-cocogoose'>
+                            ?
+                        </p>
+                    </div>
+                    <div>
+                        <p className='font-bold leading-tight text-sm md:text-lg text-center font-mabry px-4 md:px-10'>
+                            CodeRumble is a new the ultimate event for aspiring programmers to experience the exhilarating world of competitive programming. As a mock ICPC Regional Contest, we bring you a stimulating challenge that will push your coding skills to the limit. Unlock your problem-solving potential, tackle challenging algorithms, and rise to the top! Be a part of the coding extravaganza - CodeRumble awaits your coding prowess!
+                        </p>
+                    </div>
+                </div>
+
+                <div className='w-full flex flex-col items-center gap-6 md:gap-10'>
+                    <p className='font-cocogoose text-2xl md:text-[44px] w-full text-center px-4'>
+                        But, Why participate though?
+                    </p>
+
+                    <div className='w-full flex flex-col md:flex-row px-4 md:px-10'>
+                        <div className='bg-primary w-full md:w-[70%] h-auto md:h-44 flex flex-col justify-center p-6 md:p-10 border-white border-1 rounded-2xl mb-4 md:mb-0'>
+                            <p className='font-cocogoose text-secondary font-extrabold text-2xl md:text-[44px]'>
+                                one.
+                            </p>
+                            <p className='font-mabry text-black text-lg md:text-[25px] font-extrabold leading-6 md:leading-8'>
+                                Sharpen coding skills in an ICPC Mock Regional environment!
+                            </p>
+                        </div>
+
+                        {isDesktop && (
+                            <div className='w-full md:w-[30%] flex justify-center items-center md:h-auto'>
+                                <Gear />
+                            </div>
+                        )}
+                    </div>
+
+                    <div className='w-full flex flex-col-reverse md:flex-row px-4 md:px-10'>
+                        {isDesktop && (
+                            <div className='w-full md:w-[30%] flex justify-center items-center md:h-auto'>
+                                <Bulb />
+                            </div>
+                        )}
+                        <div className='bg-secondary w-full md:w-[70%] h-auto md:h-44 flex flex-col justify-center p-6 md:p-10 border-white border-1 rounded-2xl mb-4 md:mb-0'>
+                            <p className='font-cocogoose text-primary font-extrabold text-2xl md:text-[44px] text-left md:text-right'>
+                                two.
+                            </p>
+                            <p className='font-mabry text-white text-lg md:text-[25px] font-extrabold text-left md:text-right leading-6 md:leading-8'>
+                                Thrive in healthy competition with like-minded peers!
+                            </p>
+                        </div>
+                    </div>
+
+                    <div className='w-full flex flex-col md:flex-row px-4 md:px-10'>
+                        <div className='bg-primary w-full md:w-[70%] h-auto md:h-44 flex flex-col justify-center p-6 md:p-10 border-white border-1 rounded-2xl mb-4 md:mb-0'>
+                            <p className='font-cocogoose text-secondary font-extrabold text-2xl md:text-[44px]'>
+                                three.
+                            </p>
+                            <p className='font-mabry text-black text-lg md:text-[25px] font-extrabold leading-6 md:leading-8'>
+                                Gain insights from ICPC world finalists as guest speakers!
+                            </p>
+                        </div>
+                        {isDesktop && (
+                            <div className='w-full md:w-[30%] flex justify-center items-center md:h-auto'>
+                                <Brain />
+                            </div>
+                        )}
+                    </div>
+                </div>
+            </div>
         </div>
-
-        {/* Sized off the row rather than the viewport: stretching it to the row
-            is what keeps it level with the type beside it at every width, and
-            it hugs the start of its column so it reads as part of the headline
-            rather than as a third, floating element.
-
-            h-0 is load-bearing, not a typo. An auto grid row takes its size
-            from its items, and a bare h-full leaves this one contributing its
-            intrinsic 207px — which becomes a floor the row cannot go under, so
-            on a phone the mark ends up towering over the headline it is meant
-            to match. Zeroing the specified height takes it out of that
-            calculation; min-h-full then fills whatever the row turned out to
-            be, and width follows from the aspect ratio. max-w caps it if a tall
-            row would otherwise push it past its column.
-
-            Decorative: "what_is code rumble" already says it, so an alt would
-            only make a screen reader read the question twice. */}
-        <Image
-          src="/qm.svg"
-          alt=""
-          width={134}
-          height={207}
-          className="h-0 min-h-full w-auto max-w-full self-stretch justify-self-start object-contain"
-        />
-
-        <TypewriterText
-          text={ABOUT_COPY}
-          className="col-span-2 max-w-[52ch] font-plex-mono font-semibold leading-[1.5] text-[#e4e2dc] text-[clamp(13px,3.7vw,19px)] lg:col-span-1 lg:max-w-[46ch] lg:font-bold lg:tracking-[0.03em] lg:text-[clamp(12px,1.28vw,20px)]"
-        />
-      </div>
-    </section>
-  )
+    );
 }
