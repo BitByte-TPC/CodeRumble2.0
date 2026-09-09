@@ -1,25 +1,14 @@
 "use client"
 
 import { useEffect, useRef, useState } from "react"
+import {
+  PUNCH_COLUMN_COUNT as COLUMN_COUNT,
+  PUNCH_ROWS as ROWS,
+  range,
+} from "@/components/punchCardPattern"
 
-const COLUMN_COUNT = 40
 const ERASE_RADIUS_PX = 38
 const REAPPEAR_MS = 450
-
-function range(start: number, end: number) {
-  return Array.from({ length: end - start + 1 }, (_, i) => start + i)
-}
-
-// Exact dot-matrix pattern from the Figma "Group 10" punch-card strip
-// (node 560:298), decoded row by row from its per-dot coordinates.
-// The strip is rotated 180deg to match how it sits in the design.
-const ROWS: number[][] = [
-  [2, 5, 7, 11, 15, ...range(17, 39)],
-  [1, 3, 6, 9, 12, 13, 16, ...range(17, 39)],
-  [0, 2, 3, 5, 7, 8, 9, 11, 12, 15, 16, ...range(17, 39)],
-  range(0, 39),
-  range(0, 39),
-]
 
 const TOTAL_DOTS = ROWS.reduce((sum, row) => sum + row.length, 0)
 const STAGGER_MS = 900 / TOTAL_DOTS

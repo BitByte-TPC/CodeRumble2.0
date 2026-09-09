@@ -191,6 +191,50 @@ body {
   }
 }
 
+/* --- Past-memories marquee --------------------------------------------------
+   The track holds the photo run twice and slides by exactly half its width, so
+   the moment it finishes the first run the second is sitting where the first
+   started and the reset is invisible.
+
+   The pause is keyed to the tiles, not the track: :has() lets the moving
+   element react to a hover on its own child, so resting on a photograph stops
+   the row while the cursor merely crossing a gutter does not. Nothing changes
+   size or position on hover — the animation simply holds, and picks up from
+   the same offset when the cursor leaves.
+   -------------------------------------------------------------------------- */
+.memories-marquee {
+  animation: memories-scroll 60s linear infinite;
+  will-change: transform;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .memories-marquee:has(.memories-tile:hover) {
+    animation-play-state: paused;
+  }
+}
+
+@keyframes memories-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* A marquee is decoration carrying content; with motion turned down the photos
+   stay and the travel goes. Handing the viewport its own scrollbar is what
+   keeps the run that the animation would have brought past reachable. */
+@media (prefers-reduced-motion: reduce) {
+  .memories-marquee {
+    animation: none;
+  }
+
+  .memories-viewport {
+    overflow-x: auto;
+  }
+}
+
 /* --- Typewriter caret -------------------------------------------------------
    The caret is an empty inline ::after on the typed run, not an element in the
    text: an inline box carries a border but no line-break opportunity, so the
