@@ -2,6 +2,7 @@ import ClientWrapper from "@/components/ClientWrapper"
 import Hero from "@/components/sections/Hero"
 import PunchCardStrip from "@/components/sections/PunchCardStrip"
 import About from "@/components/sections/About"
+import PastMemories from "@/components/sections/PastMemories"
 import Footer from "@/components/sections/Footer"
 
 export const metadata = {
@@ -41,6 +42,7 @@ export default function Home() {
       <Hero />
       <PunchCardStrip />
       <About/>
+      <PastMemories />
       <Footer />
     </ClientWrapper>
   )
