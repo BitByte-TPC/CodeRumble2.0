@@ -1,9 +1,7 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
 import localFont from 'next/font/local'
-import Navbar from '@/components/sections/Navbar'
-import PageBeetles from '@/components/PageBeetles'
 
 const cocogoosePro = localFont({
   src: [
@@ -39,9 +37,15 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const ibmPlexMono = IBM_Plex_Mono({
+  variable: "--font-ibm-plex-mono",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+});
+
 export const metadata: Metadata = {
-  title: "CR 3.0",
-  description: "CR 3.0 Website",
+  title: "Coderumble",
+  description: "Coderumble Website",
 };
 
 export default function RootLayout({
@@ -50,18 +54,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="scroll-smooth">
+    <html lang="en" className="scroll-smooth" data-scroll-behavior="smooth">
       <head>
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${cocogoosePro.variable} ${mabryPro.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${cocogoosePro.variable} ${mabryPro.variable} ${ibmPlexMono.variable} antialiased`}
       >
-        <Navbar />
-        <main className="pt-16">
-          {children}
-          <PageBeetles beetleCount={2} pageType="main"/>
-        </main>
+        <main className="flex flex-col">{children}</main>
       </body>
     </html>
   );
