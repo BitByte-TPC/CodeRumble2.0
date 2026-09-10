@@ -75,7 +75,7 @@ export default function PastMemories() {
           two lines, which leaves the block exactly 94.48px tall. */}
       <h2 className="ml-[7.588%] font-plex-mono font-medium leading-[0.828] text-[#060606] text-[clamp(1rem,2.778vw,40px)]">
         <span className="block">The legacy Continues</span>
-        <span className="mt-[0.706em] block">Take a look cr 3.0</span>
+        <span className="mt-[0.706em] block">Take a look CR 3.0</span>
       </h2>
 
       {/* The same punch card as the hero strip, dark-on-cream and cropped to its
