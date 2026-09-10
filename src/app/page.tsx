@@ -10,9 +10,6 @@ export const metadata = {
   metadataBase: new URL("https://www.code-rumble.in"),
   title: "Coderumble",
   description: "Coderumble by The Programming Club, IIITDM Jabalpur.",
-  icons: {
-    icon: "/favicon.svg",
-  },
   openGraph: {
     title: "Coderumble",
     description: "Coderumble by The Programming Club, IIITDM Jabalpur.",
