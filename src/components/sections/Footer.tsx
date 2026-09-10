@@ -17,12 +17,12 @@ const CONTACTS = [
   {
     name: "Saket Shah",
     phone: "+91 75064 12176",
-    email: "24bsa023@iiitdmj.ac.in",
+    email: "24bec023@iiitdmj.ac.in",
   },
   {
     name: "Mahi Agarwal",
     phone: "+91 95997 28468",
-    email: "24bsa023@iiitdmj.ac.in",
+    email: "24bec023@iiitdmj.ac.in",
   },
 ]
 
@@ -43,6 +43,17 @@ const SOCIALS = [
     icon: xIcon,
   },
 ]
+
+// The map plate links out to the campus. This is the documented Maps URL form
+// (`search/?api=1&query=`), which resolves the same on the web app and in the
+// native app on both mobile platforms, and it hands Google the institute's
+// name rather than a hard-coded place id or a pair of coordinates — the name is
+// the part that stays correct if Google re-indexes the location.
+const MAP_URL =
+  "https://www.google.com/maps/search/?api=1&query=" +
+  encodeURIComponent(
+    "PDPM Indian Institute of Information Technology, Design and Manufacturing, Jabalpur",
+  )
 
 // 22.582px on the 1468 frame. Names, phone numbers, e-mails and the address
 // card's heading all sit on this one step.
@@ -167,14 +178,21 @@ export default function Footer() {
               {/* The map is a 777.68 × 486.93 plate cropped down to a 426 × 272
                   window, so the image is oversized inside the card and pulled
                   up and left by the same fractions Figma offsets it by. */}
-              <div className="relative aspect-[426/272] overflow-hidden rounded-[max(1.36vw,12px)] bg-[#ea5518] sm:flex-1 lg:w-[29.02vw] lg:flex-none">
+              <a
+                href={MAP_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Open IIITDM Jabalpur in Google Maps (opens in a new tab)"
+                className="relative block aspect-[426/272] overflow-hidden rounded-[max(1.36vw,12px)] bg-[#ea5518] outline-offset-2 focus-visible:outline-2 focus-visible:outline-[#f85a19] sm:flex-1 lg:w-[29.02vw] lg:flex-none"
+              >
                 <Image
                   src={campusMap}
-                  alt="Satellite map showing IIITDM Jabalpur"
+                  alt=""
+                  aria-hidden="true"
                   sizes="(max-width: 1024px) 60vw, 30vw"
                   className="absolute left-[-34.14%] top-[-42.71%] h-[179.02%] w-[182.55%] max-w-none object-cover"
                 />
-              </div>
+              </a>
             </div>
           </div>
 
