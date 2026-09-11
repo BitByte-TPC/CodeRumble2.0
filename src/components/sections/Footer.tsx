@@ -17,12 +17,12 @@ const CONTACTS = [
   {
     name: "Saket Shah",
     phone: "+91 75064 12176",
-    email: "24bec023@iiitdmj.ac.in",
+    email: "24bec114@iiitdmj.ac.in",
   },
   {
     name: "Mahi Agarwal",
     phone: "+91 95997 28468",
-    email: "24bec023@iiitdmj.ac.in",
+    email: "24bec066@iiitdmj.ac.in",
   },
 ]
 
@@ -106,12 +106,14 @@ export default function Footer() {
         </div>
 
         <div className="relative mt-[10.2%] bg-[#e3dfdb] px-[7vw] pt-[max(7.01vw,44px)] pb-[max(5.7vw,40px)] lg:px-0">
-          {/* 63.66% leading is what stacks "code" over "rumble" this tightly,
-              and it is also why the wordmark and 4.0 top-align on their boxes
-              rather than needing separate offsets: CSS half-leading puts the
-              cap of each first line within a pixel of the design. */}
+          {/* The two lines of the wordmark are set on the design's own 82.8%
+              leading — 144.33px type on a 119.5px advance, which is what makes
+              the 520 x 238 box in Figma. 4.0 is a separate node and keeps the
+              tighter 63.66%; its single line only ever uses that number as
+              half-leading, and the difference between the two is exactly the
+              ~30px by which the design starts 4.0 above "code". */}
           <div className="flex items-start justify-between font-bold leading-[0.6366] text-[#060606] lg:pl-[8.32vw] lg:pr-[13.09vw]">
-            <p className="text-[9.832vw]">
+            <p className="text-[9.832vw] leading-[0.828]">
               <span className="block">code</span>
               <span className="block">rumble</span>
             </p>
