@@ -2,12 +2,12 @@ import { Fragment } from "react"
 import Image from "next/image"
 import prizeMachine from "@/assets/prize-machine.jpg"
 import prizeMachineGrain from "@/assets/prize-machine-grain.png"
+import DotGrid from "@/components/DotGrid"
 import {
   PRIZE_PUNCH_COLUMN_COUNT,
   PRIZE_PUNCH_ROWS,
   PRIZE_RULE_COLUMN_COUNT,
   PRIZE_RULE_ROWS,
-  range,
 } from "@/components/punchCardPattern"
 
 // Every length here is figma_px / 1440 written as a vw, the way the footer does
@@ -79,55 +79,6 @@ const TIERS = [
   { label: "SECOND", amount: "₹6,000", size: "7.0506vw", leading: "0.828" },
   { label: "THIRD", amount: "₹4,000", size: "5.8188vw", leading: "0.6366" },
 ]
-
-function DotGrid({
-  rows,
-  columnCount,
-  columnGap,
-  rowGap,
-  color,
-  className,
-  style,
-}: {
-  rows: number[][]
-  columnCount: number
-  columnGap: string
-  rowGap: string
-  color: string
-  className?: string
-  style?: React.CSSProperties
-}) {
-  return (
-    <div
-      aria-hidden="true"
-      className={`flex flex-col ${className ?? ""}`}
-      style={{ ...style, rowGap }}
-    >
-      {rows.map((columns, rowIndex) => (
-        <div
-          key={rowIndex}
-          className="grid"
-          style={{
-            gridTemplateColumns: `repeat(${columnCount}, 1fr)`,
-            columnGap,
-          }}
-        >
-          {range(0, columnCount - 1).map((column) => (
-            <div
-              key={column}
-              className="aspect-square"
-              style={
-                columns.includes(column)
-                  ? { backgroundColor: color, borderRadius: "50%" }
-                  : undefined
-              }
-            />
-          ))}
-        </div>
-      ))}
-    </div>
-  )
-}
 
 export default function PrizePool() {
   return (

@@ -1,5 +1,6 @@
 import Image from "next/image"
-import { PUNCH_ROWS, PUNCH_COLUMN_COUNT, range } from "@/components/punchCardPattern"
+import DotGrid from "@/components/DotGrid"
+import { PUNCH_ROWS, PUNCH_COLUMN_COUNT } from "@/components/punchCardPattern"
 
 // Frame 75 is a bleed frame: 1597px wide sitting at x=-51 on the 1440 page, so
 // every offset below is (figma_x - 51) / 1440. Vertical offsets are percentages
@@ -93,29 +94,14 @@ export default function PastMemories() {
           of them — it is the bottom of a taller strip pushed up until two rows
           show — so spacing to the frame would leave a 13px hole above the
           first row that is not in the design. */}
-      <div
-        aria-hidden="true"
-        className="mt-[4.842%] ml-[6.366%] w-[91.042%] rotate-180 flex flex-col gap-[1.73vw]"
-      >
-        {PUNCH_ROWS.slice(0, 2).map((columns, rowI) => (
-          <div
-            key={rowI}
-            className="grid gap-x-[0.74vw]"
-            style={{ gridTemplateColumns: `repeat(${PUNCH_COLUMN_COUNT}, 1fr)` }}
-          >
-            {range(0, PUNCH_COLUMN_COUNT - 1).map((col) => (
-              <div
-                key={col}
-                className={
-                  columns.includes(col)
-                    ? "aspect-square rounded-full bg-[#060606]"
-                    : "aspect-square"
-                }
-              />
-            ))}
-          </div>
-        ))}
-      </div>
+      <DotGrid
+        rows={PUNCH_ROWS.slice(0, 2)}
+        columnCount={PUNCH_COLUMN_COUNT}
+        columnGap="0.74vw"
+        rowGap="1.73vw"
+        color="#060606"
+        className="mt-[4.842%] ml-[6.366%] w-[91.042%] rotate-180"
+      />
 
       {/* Two identical runs of the nine photos. Each tile carries its gutter as
           a right margin rather than the row carrying a flex gap: with a gap the

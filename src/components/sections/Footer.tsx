@@ -1,10 +1,8 @@
 import Image from "next/image"
 import campusMap from "@/assets/campus-map.jpg"
-import instagramIcon from "@/assets/instagram-icon.png"
-import linkedinIcon from "@/assets/linkedin-icon.png"
 import tornPaper from "@/assets/footer-torn-paper.svg"
 import tpcLogo from "@/assets/tpc-footer-logo-dark.svg"
-import xIcon from "@/assets/x-icon.png"
+import { SOCIAL_LINKS } from "@/components/socialLinks"
 
 // Frame 149 is 1468px wide, so every design offset below is figma_px / 1468
 // written as a vw. vw rather than % because the paper splits into columns and
@@ -23,24 +21,6 @@ const CONTACTS = [
     name: "Mahi Agarwal",
     phone: "+91 95997 28468",
     email: "24bec066@iiitdmj.ac.in",
-  },
-]
-
-const SOCIALS = [
-  {
-    label: "Instagram",
-    href: "https://www.instagram.com/bitbyte.tpc",
-    icon: instagramIcon,
-  },
-  {
-    label: "LinkedIn",
-    href: "https://www.linkedin.com/company/79614131/",
-    icon: linkedinIcon,
-  },
-  {
-    label: "X",
-    href: "https://x.com/BitByte_IIITDMJ",
-    icon: xIcon,
   },
 ]
 
@@ -90,13 +70,13 @@ export default function Footer() {
       {/* flow-root, not decoration: without a block formatting context the
           paper's own top margin collapses up through this section and drags the
           whole footer down by its own offset. */}
-      <section className="relative -mt-[20%] flow-root w-full font-plex-mono">
+      <section className="relative mt-[-20%] flow-root w-full font-plex-mono">
         {/* The tear is squashed to 1468/357, the proportion Figma gives it,
             which puts the lowest point of the torn edge at 9.7% of the page
             width. The paper starts half a percent under that and paints over
             the rest of this image, so the two beiges meet inside the artwork
             rather than at a seam that could show black. */}
-        <div className="absolute inset-x-0 top-0 aspect-[1468/357]">
+        <div className="absolute inset-x-0 top-0 aspect-1468/357">
           <Image
             src={tornPaper}
             alt=""
@@ -217,7 +197,7 @@ export default function Footer() {
             </div>
 
             <div className="flex gap-[max(1.81vw,14px)]">
-              {SOCIALS.map((social) => (
+              {SOCIAL_LINKS.map((social) => (
                 <a
                   key={social.label}
                   href={social.href}

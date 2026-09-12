@@ -1,8 +1,6 @@
 import type { CSSProperties } from "react"
 import Image from "next/image"
-import instagramIcon from "@/assets/instagram-icon.png"
-import linkedinIcon from "@/assets/linkedin-icon.png"
-import xIcon from "@/assets/x-icon.png"
+import { SOCIAL_LINKS } from "@/components/socialLinks"
 
 const REGISTER_URL =
   "https://unstop.com/p/coderumble-40-the-programming-club-tpc-1746239"
@@ -87,34 +85,22 @@ export default function Hero() {
             </span>
           </a>
 
+          {/* The tile is already named by its aria-label, so the icon inside
+              it is decorative — an alt would have a screen reader say the
+              network twice. */}
           <div className="flex gap-[2vw]">
-            <a
-              href="https://www.instagram.com/bitbyte.tpc"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Instagram"
-              className="punch-tab w-[max(6.3vw,24px)] rounded-[0.3vw]"
-            >
-              <Image src={instagramIcon} alt="Instagram" className="h-full w-full" />
-            </a>
-            <a
-              href="https://www.linkedin.com/company/79614131/"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="LinkedIn"
-              className="punch-tab w-[max(6.3vw,24px)] rounded-[0.3vw]"
-            >
-              <Image src={linkedinIcon} alt="LinkedIn" className="h-full w-full" />
-            </a>
-            <a
-              href="https://x.com/BitByte_IIITDMJ"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="X"
-              className="punch-tab w-[max(6.3vw,24px)] rounded-[0.3vw]"
-            >
-              <Image src={xIcon} alt="X" className="h-full w-full" />
-            </a>
+            {SOCIAL_LINKS.map((social) => (
+              <a
+                key={social.label}
+                href={social.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={social.label}
+                className="punch-tab w-[max(6.3vw,24px)] rounded-[0.3vw]"
+              >
+                <Image src={social.icon} alt="" className="h-full w-full" />
+              </a>
+            ))}
           </div>
         </div>
       </div>
