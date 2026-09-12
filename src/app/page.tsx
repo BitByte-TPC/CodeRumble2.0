@@ -6,40 +6,14 @@ import PastMemories from "@/components/sections/PastMemories"
 import PrizePool from "@/components/sections/PrizePool"
 import Footer from "@/components/sections/Footer"
 
-export const metadata = {
-  metadataBase: new URL("https://www.code-rumble.in"),
-  title: "Coderumble",
-  description: "Coderumble by The Programming Club, IIITDM Jabalpur.",
-  openGraph: {
-    title: "Coderumble",
-    description: "Coderumble by The Programming Club, IIITDM Jabalpur.",
-    url: "https://www.code-rumble.in/",
-    siteName: "Coderumble",
-    images: [
-      {
-        url: "/meta.png",
-        width: 1200,
-        height: 630,
-        alt: "Coderumble Banner",
-      },
-    ],
-    locale: "en_US",
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Coderumble",
-    description: "Coderumble by The Programming Club, IIITDM Jabalpur.",
-    images: ["/meta.png"],
-  },
-}
-
+// The poster, top to bottom. Metadata for the route lives in the root layout,
+// since there is only the one page.
 export default function Home() {
   return (
     <ClientWrapper>
       <Hero />
       <PunchCardStrip />
-      <About/>
+      <About />
       <PastMemories />
       <PrizePool />
       <Footer />

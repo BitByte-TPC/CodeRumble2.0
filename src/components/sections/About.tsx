@@ -59,7 +59,7 @@ export default function About() {
 
         <TypewriterText
           text={ABOUT_COPY}
-          className="col-span-2 max-w-[52ch] font-plex-mono font-semibold leading-[1.5] text-[#e4e2dc] text-[clamp(13px,3.7vw,19px)] lg:col-span-1 lg:max-w-[46ch] lg:font-bold lg:tracking-[0.03em] lg:text-[clamp(12px,1.28vw,20px)]"
+          className="col-span-2 max-w-[52ch] font-plex-mono font-semibold leading-normal text-[#e4e2dc] text-[clamp(13px,3.7vw,19px)] lg:col-span-1 lg:max-w-[46ch] lg:font-bold lg:tracking-[0.03em] lg:text-[clamp(12px,1.28vw,20px)]"
         />
       </div>
     </section>
