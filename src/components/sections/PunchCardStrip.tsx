@@ -13,9 +13,21 @@ const REAPPEAR_MS = 450
 const TOTAL_DOTS = ROWS.reduce((sum, row) => sum + row.length, 0)
 const STAGGER_MS = 900 / TOTAL_DOTS
 
+// Where each punched dot falls in the reveal order — row-major, left to right,
+// with -1 for the columns this row does not punch. ROWS is a module constant,
+// so the order is fixed and worth computing once here; the alternative is a
+// counter mutated part-way through rendering the tree, which reads as if the
+// output depends on how far React got.
+const DOT_ORDER: number[][] = (() => {
+  let next = 0
+  return ROWS.map((columns) =>
+    range(0, COLUMN_COUNT - 1).map((col) => (columns.includes(col) ? next++ : -1))
+  )
+})()
+
 export default function PunchCardStrip() {
   const [visible, setVisible] = useState(false)
-  const sectionRef = useRef<HTMLDivElement>(null)
+  const sectionRef = useRef<HTMLElement>(null)
   const gridRef = useRef<HTMLDivElement>(null)
   const dotRefs = useRef<(HTMLDivElement | null)[]>([])
   const erasedRef = useRef<Set<number>>(new Set())
@@ -101,8 +113,6 @@ export default function PunchCardStrip() {
     }
   }, [])
 
-  let dotIndex = 0
-
   return (
     <section
       ref={sectionRef}
@@ -112,17 +122,15 @@ export default function PunchCardStrip() {
       {/* Gaps are in vw, not px: the dots are sized by what 40 columns leave
           over, so a fixed gap eats the whole row on a phone. */}
       <div ref={gridRef} className="flex rotate-180 flex-col gap-[0.97vw]">
-        {ROWS.map((columns, rowI) => (
+        {DOT_ORDER.map((order, rowI) => (
           <div
             key={rowI}
             className="grid gap-x-[0.56vw]"
             style={{ gridTemplateColumns: `repeat(${COLUMN_COUNT}, 1fr)` }}
           >
-            {range(0, COLUMN_COUNT - 1).map((col) => {
-              const on = columns.includes(col)
-              if (!on) return <div key={col} className="aspect-square" />
+            {order.map((i, col) => {
+              if (i < 0) return <div key={col} className="aspect-square" />
 
-              const i = dotIndex++
               const delay = visible ? (i * STAGGER_MS).toFixed(0) : "0"
               return (
                 <div
