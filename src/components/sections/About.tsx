@@ -21,7 +21,8 @@ export default function About() {
   // reads at a sane line length) and the headline and question mark, which do
   // stay level, take the first row between them.
   return (
-    <section className="w-full bg-[#060606] px-[5.07%] py-[11%] lg:py-[5.5%]">
+    <section
+      id="about" className="w-full bg-[#060606] px-[5.07%] py-[11%] lg:py-[5.5%]">
       <div className="grid grid-cols-2 items-center justify-items-center gap-x-[4vw] gap-y-[9vw] lg:grid-cols-[1.15fr_0.7fr_1.15fr] lg:gap-x-[3vw] lg:gap-y-0">
         <div className="font-plex-mono">
           <p className="font-semibold text-[#e4e2dc] text-[min(5.2vw,44px)] lg:text-[clamp(1.25rem,4vw,58px)]">

@@ -21,8 +21,10 @@ body {
 
 .punch-cta {
   /* The punch row rides inside this padding, so the two share one source of
-     truth — the row's offset is computed from this value below. */
-  --cta-pad-block: 1.6vw;
+     truth — the row's offset is computed from this value below. The height
+     itself is set on the element now; this only has to leave the holes a band
+     to sit in under the label. */
+  --cta-pad-block: 1.5278vw;
   position: relative;
   padding-block: var(--cta-pad-block);
   transition:

@@ -83,6 +83,7 @@ const TIERS = [
 export default function PrizePool() {
   return (
     <section
+      id="prizes"
       className="flex w-full flex-col overflow-hidden bg-[#060606]"
       style={{ paddingTop: SECTION_TOP, paddingBottom: SECTION_BOTTOM }}
     >

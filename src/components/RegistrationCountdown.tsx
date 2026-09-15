@@ -42,7 +42,7 @@ export default function RegistrationCountdown() {
   return (
     <div
       role="timer"
-      className="flex items-center justify-center rounded-[1.39vw] bg-[#060606] px-[3vw] py-[1.6vw] shadow-[2vw_1.6vw_11.4vw_0_rgba(0,0,0,0.45)]"
+      className="flex h-[max(4.6736vw,44px)] items-center justify-center rounded-[1.3889vw] bg-[#060606] px-[6.5278vw] shadow-[2vw_1.6vw_11.4vw_0_rgba(0,0,0,0.45)]"
       style={{ fontSize: "min(2.5vw, 24px)" }}
     >
       <span className="whitespace-nowrap font-plex-mono font-medium text-[#e4e2dc]">

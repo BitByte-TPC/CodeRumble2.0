@@ -57,7 +57,7 @@ function Rule({ short = false }: { short?: boolean }) {
 
 export default function Footer() {
   return (
-    <footer className="w-full overflow-hidden bg-[#060606]">
+    <footer id="contact" className="w-full overflow-hidden bg-[#060606]">
       <Image
         src="/orange-dot-grid.svg"
         alt=""

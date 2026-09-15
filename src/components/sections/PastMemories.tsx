@@ -48,7 +48,8 @@ export default function PastMemories() {
   return (
     // isolate keeps the texture's multiply inside this section — without it the
     // blend reaches back to whatever the page painted underneath.
-    <section className="relative isolate w-full overflow-hidden bg-[#d9d5c7] pt-[6.94%] pb-[3.966%]">
+    <section
+      id="memories" className="relative isolate w-full overflow-hidden bg-[#d9d5c7] pt-[6.94%] pb-[3.966%]">
       {/* The paper. In Figma this sheet sits above the (then still empty) photo
           slots, but multiply over a black placeholder is a no-op, so there is
           no evidence the grain was meant to fall across the photographs

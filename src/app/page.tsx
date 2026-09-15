@@ -1,4 +1,5 @@
 import ClientWrapper from "@/components/ClientWrapper"
+import Nav from "@/components/sections/Nav"
 import Hero from "@/components/sections/Hero"
 import PunchCardStrip from "@/components/sections/PunchCardStrip"
 import About from "@/components/sections/About"
@@ -11,6 +12,7 @@ import Footer from "@/components/sections/Footer"
 export default function Home() {
   return (
     <ClientWrapper>
+      <Nav />
       <Hero />
       <PunchCardStrip />
       <About />
